@@ -1,16 +1,15 @@
-# agile_hackathon
+# Agile_Hackathon
 
-A new Flutter project.
+🗓 8/23 해커톤 OT  
+🗓 8/23~24(오후6시 종료) 해커톤 진행  
+🗓 8/25 시상식  
 
 ## Getting Started
+- screen폴더내에 screen별로 파일관리
+- 상대방 수정사항 있을 시(반드시 확인!)  
+  -> git pull origin master
+- 수정 후 (깃commit)   
+  -> git add .  
+  -> git commit -m "[mdf]커밋메시지"  
+  -> git push origin master
 
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
-
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.

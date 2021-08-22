@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "383036563361",
+    "project_id": "agile-hackathon",
+    "storage_bucket": "agile-hackathon.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:383036563361:android:860278a0a73d842b1ab5e0",
+        "android_client_info": {
+          "package_name": "com.example.agile_hackathon"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "383036563361-jeagjo4r5cj41f5357b9ujp0vi8hc0ep.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.agile_hackathon",
+            "certificate_hash": "cf2df188446cee3b592515550b837a64945130ca"
+          }
+        },
+        {
+          "client_id": "383036563361-hp43akqg7gqd9ndsqh1k4bpoupofetvf.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBTan1x05R9q2wHPYJdrq1ZmiGwHIkbOko"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "383036563361-hp43akqg7gqd9ndsqh1k4bpoupofetvf.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

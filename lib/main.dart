@@ -12,6 +12,9 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'PLAY CLAY',
       theme: ThemeData(
+        // brightness: Brightness.dark,
+        primaryColor: Colors.black,
+        accentColor: Colors.white,
         primaryColorLight: Colors.white,
         // primaryColor: Colors.black,
       ),

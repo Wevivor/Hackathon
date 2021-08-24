@@ -143,14 +143,24 @@ class _ShareScreenState extends State<ShareScreen> {
   Widget build(BuildContext context) {
     const textStyleBold = const TextStyle(fontWeight: FontWeight.bold);
     return MaterialApp(
-        home: Scaffold(
-      appBar: AppBar(
-        title: const Text('Plugin example app'),
+      home: Scaffold(
+        appBar: AppBar(
+          title: Text(
+            'CLAY',
+            style: TextStyle(
+              color: Colors.black,
+            ),
+          ),
+          centerTitle: true, //타이틀 중앙배열
+          elevation: 0.0, //앱바 하단 그림자 선효과 제거
+          backgroundColor: Colors.white,
+        ),
+        body: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [MessageStream()],
+        ),
       ),
-      body: Column(
-        children: [MessageStream()],
-      ),
-    ));
+    );
   }
 }
 

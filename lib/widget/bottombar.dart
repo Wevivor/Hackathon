@@ -1,5 +1,5 @@
 // import 'package:flutter/cupertino.dart';
-import 'package:agile_hackathon/screen/add_screen.dart';
+import 'package:agile_hackathon/screen/share_screen.dart';
 import 'package:agile_hackathon/screen/articlay_screen.dart';
 import 'package:agile_hackathon/screen/mypage_screen.dart';
 import 'package:flutter/material.dart';
@@ -21,8 +21,8 @@ class _BottomBarState extends State<BottomBar> {
             //화면에 들어갈 부분
             children: [
               Articlay(),
-              AddScreen(),
-              MyContents(), //마이페이지
+              ShareScreen(),
+              MyCategory(), //마이페이지
             ],
           ),
           //네비게이션 바

@@ -12,15 +12,18 @@ class MakeClay extends StatelessWidget {
       resizeToAvoidBottomInset: false,
       appBar: AppBar(
         title: Text(
-          '나만의 클레이 캐릭터 생성하기',
-          style: TextStyle(color: Colors.black, fontSize: 15),
+          'CLAY 만들기',
+          style: TextStyle(color: Colors.white, fontSize: 15),
         ),
         centerTitle: true, //타이틀 중앙배열
         // elevation: 0.0, //앱바하단 경계선 제거
         actions: [
-          IconButton(
-            color: Colors.black,
-            icon: Icon(Icons.next_plan),
+          TextButton(
+            child: Text('완성'),
+            style: TextButton.styleFrom(
+              primary: Colors.yellow, // foreground
+              textStyle: const TextStyle(fontSize: 18),
+            ),
             onPressed: () async {
               final nickname = Clay('닉네임', '이미지파일이름'); //textfield에 입력받은data
               final result = await Navigator.push(
@@ -31,17 +34,13 @@ class MakeClay extends StatelessWidget {
                 ),
               );
             },
-          ),
-          // Text(
-          //   '완료',
-          //   style: TextStyle(color: Colors.black),
-          // )
+          )
         ],
-        backgroundColor: Colors.white,
+        backgroundColor: Colors.black,
       ),
 //화면부분
       body: Container(
-        color: Colors.white,
+        color: Colors.black,
         child: Center(
           child: ListView(
             children: [
@@ -50,44 +49,65 @@ class MakeClay extends StatelessWidget {
                   Padding(
                     padding: EdgeInsets.only(left: 10, top: 10, bottom: 20),
                     child: Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
                       children: [
                         Text(
-                            '🧸${FirebaseAuth.instance.currentUser!.displayName}님만의 클레이 캐릭터를 만들어 보세요!'),
-                        SizedBox(
-                            width: 60,
-                            child: TextButton(
-                              style: ButtonStyle(
-                                // backgroundColor: MaterialStateProperty.all(Colors.lime),
-                                padding: MaterialStateProperty.all(
-                                  EdgeInsets.only(left: 8, right: 8),
-                                ),
-                              ),
-                              child: Text(
-                                'logout',
-                                style: TextStyle(
-                                  color: Colors.white,
-                                  backgroundColor: Colors.black,
-                                ),
-                              ),
-                              onPressed: FirebaseAuth.instance.signOut,
-                            )),
+                          '${FirebaseAuth.instance.currentUser!.displayName}',
+                          style: TextStyle(
+                            color: Colors.yellow,
+                            backgroundColor: Colors.black,
+                          ),
+                        ),
+                        Text(
+                          '님만의 클레이 캐릭터를 만들어 보세요!',
+                          style: TextStyle(
+                            color: Colors.white,
+                            backgroundColor: Colors.black,
+                          ),
+                        ),
+//                        SizedBox(
+//                            width: 60,
+//                            child: TextButton(
+//                              style: ButtonStyle(
+//                                // backgroundColor: MaterialStateProperty.all(Colors.lime),
+//                                padding: MaterialStateProperty.all(
+//                                  EdgeInsets.only(left: 8, right: 8),
+//                                ),
+//                              ),
+//                              child: Text(
+//                                'logout',
+//                                style: TextStyle(
+//                                  color: Colors.white,
+//                                  backgroundColor: Colors.black,
+//                                ),
+//                              ),
+//                              onPressed: FirebaseAuth.instance.signOut,
+//                            )
                       ],
                     ),
                   ),
                   //완성된 캐릭터
-                  Container(
-                    width: 220,
-                    decoration: BoxDecoration(
-                        //박스테두리
-                        border: Border.all(color: Colors.black26, width: 4)),
+                  CircleAvatar(
+                    radius: 50.0,
+                    backgroundImage: AssetImage('images/pink.jpg'),
+                  ),
+                  ClipRRect(
+                    borderRadius: BorderRadius.circular(8.0),
                     child: Image.asset(
-                      'images/cha.png',
-                      height: 200,
+                      'images/pink.jpg',
+                      width: 110.0,
+                      height: 110.0,
                       fit: BoxFit.fill,
                     ),
                   ),
-                  SizedBox(
-                    height: 15,
+                  Container(
+                    height: MediaQuery.of(context).size.height * 0.2,
+                    child: Image.asset(
+                      'images/cha.png',
+                      width: 200,
+                      height: 200,
+                      fit: BoxFit.fill,
+                    ),
                   ),
                   SizedBox(
                     width: 200,
@@ -115,7 +135,7 @@ class SelectClay extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      color: Color(0xFFFFFFFF),
+      color: Colors.white,
       child: Container(
         padding: EdgeInsets.all(20.0),
         decoration: BoxDecoration(

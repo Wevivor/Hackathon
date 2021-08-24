@@ -1,3 +1,4 @@
+import 'package:agile_hackathon/screen/mycontents_screen.dart';
 import 'package:draggable_home/draggable_home.dart';
 import 'package:flutter/material.dart';
 
@@ -71,18 +72,18 @@ class _MyProfileState extends State<MyProfile> {
                   Text('콘텐츠 수:  9')
                 ],
               ),
-              SizedBox(
-                height: 30,
-              ),
-
-              Padding(
-                padding: EdgeInsets.only(left: 10, right: 10),
-                child: Divider(
-                  thickness: 1,
-                  color: Colors.black,
-                ),
-              ),
-              // MyContents()
+              // SizedBox(
+              //   height: 30,
+              // ),
+              //하단 경계선
+              // Padding(
+              //   padding: EdgeInsets.only(left: 10, right: 10),
+              //   child: Divider(
+              //     thickness: 1,
+              //     color: Colors.black,
+              //   ),
+              // ),
+              // MyCategory()
             ],
           ),
         ),
@@ -93,13 +94,13 @@ class _MyProfileState extends State<MyProfile> {
 
 ///////////내콘텐츠 리스트////////////////////
 
-class MyContents extends StatelessWidget {
-  const MyContents({Key? key}) : super(key: key);
+class MyCategory extends StatelessWidget {
+  const MyCategory({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return DraggableHome(
-      // leading: Icon(Icons.arrow_back_ios),  //뒤로가기버튼
+      // leading: Icon(Icons.arrow_back_ios),  //< 뒤로가기버튼 형태
       title: Text("마이 프로필"), //닉네임 이름 전달 받아서 띄우기
       actions: [
         IconButton(onPressed: () {}, icon: Icon(Icons.settings)),
@@ -114,6 +115,7 @@ class MyContents extends StatelessWidget {
     );
   }
 
+//설정 아이콘 버튼
   Container headerBottomBarWidget() {
     return Container(
       child: Row(
@@ -136,60 +138,94 @@ Container headerWidget(BuildContext context) => Container(
         child: Column(
           children: [
             //프로필
-            SizedBox(
-              height: 40,
-            ),
-            SizedBox(
-              width: 150,
-              child: CircleAvatar(
-                radius: 100,
-                backgroundImage: AssetImage('images/cha.png'),
+            SafeArea(
+              child: Column(
+                children: <Widget>[
+                  SizedBox(
+                    width: 150,
+                    child: CircleAvatar(
+                      radius: 100,
+                      backgroundImage: AssetImage('images/cha.png'),
+                    ),
+                  ),
+                  Text(
+                    '닉네임은 뭐하지',
+                    style: TextStyle(
+                        fontWeight: FontWeight.bold,
+                        fontSize: 20,
+                        color: Colors.yellow),
+                  ),
+                  SizedBox(
+                    height: 10,
+                  ),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Text(
+                        '아티클 수:  0',
+                        style: TextStyle(fontSize: 15, color: Colors.white),
+                      ),
+                      SizedBox(
+                        width: 50,
+                      ),
+                      Text(
+                        '콘텐츠 수:  9',
+                        style: TextStyle(fontSize: 15, color: Colors.white),
+                      ),
+                    ],
+                  ),
+                ],
               ),
             ),
-            SizedBox(
-              height: 20,
-            ),
-            Text(
-              '닉네임은 뭐하지',
-              style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
-            ),
-            SizedBox(
-              height: 10,
-            ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Text('아티클 수:  0'),
-                SizedBox(width: 50),
-                Text('콘텐츠 수:  9')
-              ],
-            ),
-
-            // child: Text("Title",
-            //     style: Theme.of(context)
-            //         .textTheme
-            //         .headline2!
-            //         .copyWith(color: Colors.white70)),
           ],
         ),
       ),
     );
 
 ListView listView() {
-  return ListView.builder(
+  return ListView(
     padding: EdgeInsets.only(top: 0),
     physics: NeverScrollableScrollPhysics(),
-    itemCount: 20,
     shrinkWrap: true,
-    itemBuilder: (context, index) => Card(
-      color: Colors.white70,
-      child: ListTile(
-        leading: CircleAvatar(
-          child: Text("$index"),
-        ),
-        title: Text("Title"),
-        subtitle: Text("Subtitile"),
-      ),
-    ),
+    children: <Widget>[
+      SafeArea(
+          child: Column(
+        children: [
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              ElevatedButton(
+                  onPressed: () {}, child: Text('전체보기'), style: ButtonStyle()),
+              InkWell(
+                child: Image.asset('images/pink.jpg', width: 120, height: 120),
+                onTap: () => MyContents(),
+              ),
+            ],
+          ),
+        ],
+      ))
+    ],
   );
 }
+
+
+
+
+// ListView listView() {
+//     return ListView.builder(
+//     padding: EdgeInsets.only(top: 0),
+//     physics: NeverScrollableScrollPhysics(),
+//     itemCount: 9,
+//     shrinkWrap: true,
+//     itemBuilder: (context, index) => Card(
+//       color: Colors.white70,
+//       child: ListTile(
+//         leading: CircleAvatar(
+//           child: Text("$index"),
+//         ),
+//         title: Text("카테고리"),
+//         subtitle: Text("Subtitile"),
+//       ),
+//     ),
+//   );
+// }

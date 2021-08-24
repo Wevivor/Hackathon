@@ -19,7 +19,7 @@ class MyApp extends StatelessWidget {
         primaryColorLight: Colors.white,
         // primaryColor: Colors.black,
       ),
-      home: MakeClay(),
+      home: Splash(),
       // initialRoute: App.id,
       // routes: {
       //   App.id: (context) => App(),

@@ -17,10 +17,8 @@ class _MyProfileState extends State<MyProfile> {
       appBar: AppBar(
         iconTheme: IconThemeData(color: Colors.black), //앱바 버튼색
         title: Text(
-          '마이페이지',
-          style: TextStyle(
-            color: Colors.white,
-          ),
+          'CLAY  ZONE',
+          style: TextStyle(color: Colors.white, fontSize: 15),
         ),
         centerTitle: true, //타이틀 중앙배열
         elevation: 0.0, //앱바 하단 그림자 선효과 제거
@@ -108,7 +106,8 @@ class MyCategory extends StatelessWidget {
       headerWidget: headerWidget(context),
       headerBottomBar: headerBottomBarWidget(),
       body: [
-        listView(), //콘텐츠리스트로 변경
+        BottomListview(),
+        // listView(),
       ],
       fullyStretchable: true,
       expandedBody: MyProfile(),
@@ -182,50 +181,133 @@ Container headerWidget(BuildContext context) => Container(
       ),
     );
 
-ListView listView() {
-  return ListView(
-    padding: EdgeInsets.only(top: 0),
-    physics: NeverScrollableScrollPhysics(),
-    shrinkWrap: true,
-    children: <Widget>[
-      SafeArea(
-          child: Column(
-        children: [
+class BottomListview extends StatefulWidget {
+  @override
+  _BottomListviewState createState() => _BottomListviewState();
+}
+
+class _BottomListviewState extends State<BottomListview> {
+  @override
+  Widget build(BuildContext context) {
+    return DefaultTabController(
+      length: 2,
+      initialIndex: 0,
+      child: SizedBox(
+        child: Column(
+          children: <Widget>[
+            TabBar(
+              labelColor: Colors.black,
+              indicatorColor: Colors.yellow,
+              labelStyle: TextStyle(fontSize: 15, fontWeight: FontWeight.bold),
+              tabs: [
+                Tab(
+                  text: '내 카테고리',
+                ),
+                Tab(
+                  text: '내 클레이',
+                ),
+              ],
+            ),
+            SingleChildScrollView(
+              child: SizedBox(
+                height: 10000,
+                child: TabBarView(
+                  children: <Widget>[MyCategoryScreen(), MyClayScreen()],
+                ),
+              ),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+}
+
+/////////// 프로필 하단 my카테고리화면//////////
+class MyCategoryScreen extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return SafeArea(
+      child: Column(
+        children: <Widget>[
+          //카테고리 첫줄
+          Row(
+            children: <Widget>[
+              Padding(
+                padding: EdgeInsets.only(left: 30, right: 20),
+                child: ElevatedButton(
+                  onPressed: () {
+                    Navigator.push(context, MaterialPageRoute<void>(
+                        builder: (BuildContext context) {
+                      return MyContents();
+                    }));
+                  },
+                  child: Text('전체보기'),
+                  style: ButtonStyle(
+                      padding: MaterialStateProperty.all(
+                          EdgeInsets.fromLTRB(60, 40, 60, 40)),
+                      backgroundColor: MaterialStateProperty.all(Colors.black)),
+                ),
+              ),
+              ElevatedButton(
+                onPressed: () {},
+                child: Text(
+                  '카테고리1',
+                  style: TextStyle(color: Colors.black),
+                ),
+                style: ButtonStyle(
+                    backgroundColor: MaterialStateProperty.all(Colors.yellow)),
+              ),
+            ],
+          ),
+          //카테고리 둘째 줄
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
-            children: [
+            children: <Widget>[
               ElevatedButton(
-                  onPressed: () {}, child: Text('전체보기'), style: ButtonStyle()),
-              InkWell(
-                child: Image.asset('images/pink.jpg', width: 120, height: 120),
-                onTap: () => MyContents(),
+                onPressed: () {},
+                child: Text(
+                  '카테고리2',
+                  style: TextStyle(color: Colors.black),
+                ),
+                style: ButtonStyle(
+                    backgroundColor: MaterialStateProperty.all(Colors.orange)),
+              ),
+              ElevatedButton(
+                onPressed: () {},
+                child: Text('카테고리3'),
+                style: ButtonStyle(
+                    backgroundColor: MaterialStateProperty.all(Colors.black)),
               ),
             ],
           ),
         ],
-      ))
-    ],
-  );
+      ),
+    );
+  }
 }
 
-
-
-
-// ListView listView() {
-//     return ListView.builder(
-//     padding: EdgeInsets.only(top: 0),
-//     physics: NeverScrollableScrollPhysics(),
-//     itemCount: 9,
-//     shrinkWrap: true,
-//     itemBuilder: (context, index) => Card(
-//       color: Colors.white70,
-//       child: ListTile(
-//         leading: CircleAvatar(
-//           child: Text("$index"),
-//         ),
-//         title: Text("카테고리"),
-//         subtitle: Text("Subtitile"),
-//       ),
-//     ),
-//   );
-// }
+class MyClayScreen extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      padding: EdgeInsets.only(left: 20, right: 20),
+      child: GridView.count(
+        // mainAxisSpacing: 30,
+        crossAxisSpacing: 10,
+        crossAxisCount: 3,
+        children: <Widget>[
+          Image.asset(
+            'images/pink.jpg',
+          ),
+          Image.asset(
+            'images/puple.jpg',
+          ),
+          Image.asset(
+            'images/blue.jpg',
+          ),
+        ],
+      ),
+    );
+  }
+}

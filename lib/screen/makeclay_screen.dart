@@ -100,15 +100,6 @@ class MakeClay extends StatelessWidget {
                       fit: BoxFit.fill,
                     ),
                   ),
-                  Container(
-                    height: MediaQuery.of(context).size.height * 0.2,
-                    child: Image.asset(
-                      'images/cha.png',
-                      width: 200,
-                      height: 200,
-                      fit: BoxFit.fill,
-                    ),
-                  ),
                   SizedBox(
                     width: 200,
                     child: TextField(

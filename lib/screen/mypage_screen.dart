@@ -262,7 +262,7 @@ class MyCategoryScreen extends StatelessWidget {
               }));
             },
             child: Text(
-              '카테고리1',
+              '창업모음',
               style: TextStyle(color: Colors.black),
             ),
             style: ButtonStyle(
@@ -283,7 +283,7 @@ class MyCategoryScreen extends StatelessWidget {
               }));
             },
             child: Text(
-              '카테고리2',
+              '요리백과',
               style: TextStyle(color: Colors.black),
             ),
             style: ButtonStyle(
@@ -304,7 +304,7 @@ class MyCategoryScreen extends StatelessWidget {
               }));
             },
             child: Text(
-              '카테고리3',
+              '여행에미치다',
               style: TextStyle(color: Colors.black),
             ),
             style: ButtonStyle(
@@ -325,7 +325,7 @@ class MyCategoryScreen extends StatelessWidget {
               }));
             },
             child: Text(
-              '카테고리3',
+              '맛집모음',
               style: TextStyle(color: Colors.black),
             ),
             style: ButtonStyle(
@@ -346,7 +346,7 @@ class MyCategoryScreen extends StatelessWidget {
               }));
             },
             child: Text(
-              '카테고리3',
+              '영화',
               style: TextStyle(color: Colors.black),
             ),
             style: ButtonStyle(

@@ -35,46 +35,43 @@ class _MyContentsState extends State<MyContents> {
             DefaultTabController(
               length: 4,
               initialIndex: 0,
-              child: SizedBox(
-                height: 500,
-                child: Column(
-                  children: <Widget>[
-                    TabBar(
-                      labelColor: Colors.black,
-                      indicatorColor: Colors.yellow,
-                      labelStyle:
-                          TextStyle(fontSize: 15, fontWeight: FontWeight.bold),
-                      tabs: [
-                        Tab(
-                          text: '전체보기',
-                        ),
-                        Tab(
-                          text: '카테고리',
-                        ),
-                        Tab(
-                          text: '카테고리',
-                        ),
-                        Tab(
-                          text: '카테고리',
-                        ),
-                      ],
-                    ),
-                    SingleChildScrollView(
-                      child: SizedBox(
-                        height: 900,
-                        child: TabBarView(
-                          children: <Widget>[
-                            AllContents(),
-                            AllContents(),
-                            AllContents(),
-                            AllContents(),
-                          ], //카테고리 각버튼별 화면
-                        ),
+              child: Column(
+                children: <Widget>[
+                  TabBar(
+                    labelColor: Colors.black,
+                    indicatorColor: Colors.yellow,
+                    labelStyle:
+                        TextStyle(fontSize: 15, fontWeight: FontWeight.bold),
+                    tabs: [
+                      Tab(
+                        text: '전체보기',
+                      ),
+                      Tab(
+                        text: '창업모음',
+                      ),
+                      Tab(
+                        text: '요리백과',
+                      ),
+                      Tab(
+                        text: '여행에미치다',
+                      ),
+                    ],
+                  ),
+                  SingleChildScrollView(
+                    child: SizedBox(
+                      height: 612,
+                      child: TabBarView(
+                        children: <Widget>[
+                          AllContents(),
+                          AllContents(),
+                          AllContents(),
+                          AllContents(),
+                        ], //카테고리 각버튼별 화면
                       ),
                     ),
-                    // SizedBox(height: 2, child: BottomBar())
-                  ],
-                ),
+                  ),
+                  // SizedBox(height: 200, child: BottomBar.)
+                ],
               ),
             ),
           ],
@@ -93,14 +90,16 @@ class AllContents extends StatefulWidget {
 class _AllContentsState extends State<AllContents> {
   @override
   Widget build(BuildContext context) {
-    return Column(
-        mainAxisAlignment: MainAxisAlignment.start,
-        children: <Widget>[
-          // Image.asset(
-          //   'images/pink.jpg',
-          //   width: 100,
-          //   height: 300,
-          // ),
-        ]);
+    return SafeArea(
+      child:
+          Column(mainAxisAlignment: MainAxisAlignment.start, children: <Widget>[
+        Text('data')
+        // Image.asset(
+        //   'images/pink.jpg',
+        //   width: 100,
+        //   height: 300,
+        // ),
+      ]),
+    );
   }
 }

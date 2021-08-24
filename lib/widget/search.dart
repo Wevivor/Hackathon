@@ -1,3 +1,4 @@
+import 'package:agile_hackathon/widget/filter.dart';
 import 'package:flutter/material.dart';
 
 class Search extends StatefulWidget {
@@ -85,7 +86,10 @@ class _SearchState extends State<Search> {
                   ),
                 ),
                 IconButton(
-                    onPressed: () {}, icon: Icon(Icons.filter_alt_rounded))
+                    onPressed: () {
+                      FilterSheet(); //정렬기준
+                    },
+                    icon: Icon(Icons.filter_alt_rounded))
               ],
             ),
           ),

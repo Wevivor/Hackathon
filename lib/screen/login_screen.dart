@@ -32,7 +32,11 @@ class SocialLogin extends StatelessWidget {
         child: Column(
       mainAxisAlignment: MainAxisAlignment.center,
       children: <Widget>[
-        Image.asset('images/wevivor.jpg'),
+        Image.asset(
+          'images/claylogo.png',
+          width: 200,
+        ),
+        SizedBox(height: 50),
         GoogleLoginButton()
       ],
     ));

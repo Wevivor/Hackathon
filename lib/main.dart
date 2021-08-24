@@ -1,6 +1,4 @@
-import 'package:agile_hackathon/app.dart';
-import 'package:agile_hackathon/screen/login_screen.dart';
-import 'package:agile_hackathon/screen/makeclay_screen.dart';
+import 'package:agile_hackathon/screen/splash.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -14,9 +12,10 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'PLAY CLAY',
       theme: ThemeData(
-        primaryColorLight: Colors.white10,
+        primaryColorLight: Colors.white,
+        // primaryColor: Colors.black,
       ),
-      home: App(),
+      home: Splash(),
       // initialRoute: App.id,
       // routes: {
       //   App.id: (context) => App(),

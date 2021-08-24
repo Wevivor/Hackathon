@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:draggable_home/draggable_home.dart';
+import 'group_screen.dart';
 
 final _firestore = FirebaseFirestore.instance;
 
@@ -15,57 +16,134 @@ List imgList = [
   'https://images.unsplash.com/photo-1502943693086-33b5b1cfdf2f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=668&q=80'
 ];
 
-class Articlay extends StatelessWidget {
-  final PageController ctrl = PageController();
-  final List<Widget> imageSliders = imgList
-      .map((item) => Container(
-            child: Container(
-              child: ClipRRect(
-                  borderRadius: BorderRadius.all(Radius.circular(5.0)),
-                  child: Stack(
-                    children: <Widget>[
-                      Image.network(item, height: 300, fit: BoxFit.cover),
-                      Positioned(
-                        bottom: 0.0,
-                        left: 0.0,
-                        right: 0.0,
-                        child: Container(
-                          decoration: BoxDecoration(
-                            gradient: LinearGradient(
-                              colors: [
-                                Color.fromARGB(200, 0, 0, 0),
-                                Color.fromARGB(0, 0, 0, 0)
-                              ],
-                              begin: Alignment.bottomCenter,
-                              end: Alignment.topCenter,
-                            ),
+final PageController ctrl = PageController();
+final List<Widget> imageSliders = imgList
+    .map((item) => Container(
+          child: Container(
+            child: ClipRRect(
+                borderRadius: BorderRadius.all(Radius.circular(5.0)),
+                child: Stack(
+                  children: <Widget>[
+                    Image.network(item, height: 300, fit: BoxFit.cover),
+                    Positioned(
+                      bottom: 0.0,
+                      left: 0.0,
+                      right: 0.0,
+                      child: Container(
+                        decoration: BoxDecoration(
+                          gradient: LinearGradient(
+                            colors: [
+                              Color.fromARGB(200, 0, 0, 0),
+                              Color.fromARGB(0, 0, 0, 0)
+                            ],
+                            begin: Alignment.bottomCenter,
+                            end: Alignment.topCenter,
                           ),
-                          padding: EdgeInsets.symmetric(
-                              vertical: 10.0, horizontal: 20.0),
-                          child: Text(
-                            'No. ${imgList.indexOf(item)} image',
-                            style: TextStyle(
-                              color: Colors.white,
-                              fontSize: 20.0,
-                              fontWeight: FontWeight.bold,
-                            ),
+                        ),
+                        padding: EdgeInsets.symmetric(
+                            vertical: 10.0, horizontal: 20.0),
+                        child: Text(
+                          'No. ${imgList.indexOf(item)} image',
+                          style: TextStyle(
+                            color: Colors.white,
+                            fontSize: 20.0,
+                            fontWeight: FontWeight.bold,
                           ),
                         ),
                       ),
-                    ],
-                  )),
-            ),
-          ))
-      .toList();
+                    ),
+                  ],
+                )),
+          ),
+        ))
+    .toList();
 
+class Articlay extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return Container(
+    return DraggableHome(
+      // backgroundColor: Colors.transparent,
+      title: Text("Title"),
+      headerWidget: headerWidget(context),
+      headerExpandedHeight: 0.4,
+//        headerBottomBar: headerBottomBarWidget(),
+      body: [
+        BottomListview(),
+      ],
+      fullyStretchable: true,
+//        body: [
+//          Column(
+//            children: [
+//              Padding(
+//                padding: const EdgeInsets.symmetric(horizontal: 27.0),
+//                child: Row(
+//                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+//                  children: [
+//                    Text(
+//                      "Recommend",
+//                      style: TextStyle(
+//                        color: Colors.white,
+//                        fontSize: 20.0,
+//                      ),
+//                    ),
+//                    Icon(Icons.arrow_forward_ios_sharp),
+//                  ],
+//                ),
+//              ),
+//              MessageStream(),
+//            ],
+//          ),
+//        ]
+    );
+  }
+}
+
+//class recommendBottomSheet extends StatelessWidget {
+//  @override
+//  Widget build(BuildContext context) {
+//    return DraggableHome(
+//      title: Text("아티클레이"),
+//
+//      headerWidget: headerWidget(context),
+////        headerBottomBar: headerBottomBarWidget(),
+//
+//      body: [
+//        BottomListview(),
+//      ],
+//      fullyStretchable: true,
+////        body: [
+////          Column(
+////            children: [
+////              Padding(
+////                padding: const EdgeInsets.symmetric(horizontal: 27.0),
+////                child: Row(
+////                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+////                  children: [
+////                    Text(
+////                      "Recommend",
+////                      style: TextStyle(
+////                        color: Colors.white,
+////                        fontSize: 20.0,
+////                      ),
+////                    ),
+////                    Icon(Icons.arrow_forward_ios_sharp),
+////                  ],
+////                ),
+////              ),
+////              MessageStream(),
+////            ],
+////          ),
+////        ]
+//    );
+//  }
+//}
+
+Container headerWidget(BuildContext context) => Container(
       decoration: BoxDecoration(
         gradient: LinearGradient(
           begin: Alignment.topCenter,
           end: Alignment.bottomCenter,
-          stops: [0.05, 0.2, 0.25, 0.4, 0.5, 1.0],
+          stops: [0.3, 0.4, 0.5, 0.75, 0.95, 1.0],
           colors: [
             Color(0xFF000000),
             Color(0xFF0E0E0E),
@@ -84,16 +162,16 @@ class Articlay extends StatelessWidget {
             style: TextStyle(color: Colors.white, fontSize: 20),
           ),
           centerTitle: true, //타이틀 중앙배열
-          // elevation: 0.0, //앱바하단 경계선 제거
+// elevation: 0.0, //앱바하단 경계선 제거
           actions: [
             IconButton(
               onPressed: () async {
                 await Navigator.push(
-                  //push속성 : 다음화면으로 이동 -새로운 화면이 표시되어도 이전 화면은 메모리에 남게 됨.
+//push속성 : 다음화면으로 이동 -새로운 화면이 표시되어도 이전 화면은 메모리에 남게 됨.
                   context,
                   MaterialPageRoute(
                     builder: (context) =>
-                        Center(child: ShareScreen()), //화면이동 코드
+                        Center(child: GroupScreen()), //화면이동 코드
                   ),
                 );
               },
@@ -107,43 +185,17 @@ class Articlay extends StatelessWidget {
             Center(
               child: Column(
                 children: [
-                  SizedBox(height: 30.0),
+                  SizedBox(height: 10.0),
                   SizedBox(
-                    height: 300,
                     child: CarouselSlider(
                       options: CarouselOptions(
-                        height: 300.0,
-                        aspectRatio: 1.5,
+                        height: 220.0,
                         enlargeCenterPage: true,
                       ),
                       items: imageSliders,
                     ),
                   ),
                   SizedBox(height: 20.0),
-                  Column(
-                    children: [
-                      Padding(
-                        padding: const EdgeInsets.symmetric(horizontal: 27.0),
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                            Padding(
-                              padding: const EdgeInsets.only(bottom: 3),
-                              child: Text(
-                                "Recommend",
-                                style: TextStyle(
-                                  color: Colors.white,
-                                  fontSize: 20.0,
-                                ),
-                              ),
-                            ),
-                            Icon(Icons.arrow_forward_ios_sharp),
-                          ],
-                        ),
-                      ),
-                      MessageStream(),
-                    ],
-                  ),
                 ],
               ),
             ),
@@ -151,63 +203,41 @@ class Articlay extends StatelessWidget {
         ),
       ),
     );
-  }
+
+class BottomListview extends StatefulWidget {
+  @override
+  _BottomListviewState createState() => _BottomListviewState();
 }
 
-class recommendBottomSheet extends StatelessWidget {
+class _BottomListviewState extends State<BottomListview> {
   @override
   Widget build(BuildContext context) {
-    return DraggableHome(
-        title: Text("Title"),
-        headerWidget: headerWidget(context),
-        body: [
-          Column(
-            children: [
-              Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 27.0),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Text(
-                      "Recommend",
-                      style: TextStyle(
-                        color: Colors.white,
-                        fontSize: 20.0,
-                      ),
-                    ),
-                    Icon(Icons.arrow_forward_ios_sharp),
-                  ],
-                ),
-              ),
-              MessageStream(),
-            ],
-          ),
-        ]);
-  }
-}
-
-Container headerWidget(BuildContext context) => Container(
-      child: Center(
-        child: Column(
-          children: [
-            //프로필
-            SafeArea(
-              child: Column(
-                children: <Widget>[
-                  Text(
-                    '닉네임은 뭐하지',
-                    style: TextStyle(
-                        fontWeight: FontWeight.bold,
-                        fontSize: 20,
-                        color: Colors.yellow),
+    return Container(
+      color: Colors.transparent,
+      child: Column(
+        children: [
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 27.0),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Text(
+                  "Recommend",
+                  style: TextStyle(
+                    color: Colors.black,
+                    fontSize: 18.0,
                   ),
-                ],
-              ),
+                ),
+                Icon(Icons.arrow_forward_ios_sharp),
+              ],
             ),
-          ],
-        ),
+          ),
+          MessageStream(),
+        ],
       ),
     );
+  }
+}
 
 class MessageStream extends StatelessWidget {
   @override
@@ -238,7 +268,6 @@ class MessageStream extends StatelessWidget {
           contentsBubbles.add(contentsBubble);
         }
         return SizedBox(
-          height: 300,
           child: ListView(
             shrinkWrap: true,
             reverse: true,
@@ -266,13 +295,14 @@ class ContentsBubble extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
+      margin: EdgeInsets.only(bottom: 5),
       padding:
           EdgeInsets.only(bottom: MediaQuery.of(context).viewInsets.bottom),
       child: Container(
         // 배경이 흐린 회색으로 바뀜.
         child: Container(
           decoration: BoxDecoration(
-            color: Colors.white,
+            color: Colors.yellow,
             borderRadius: BorderRadius.all(Radius.circular(20)),
           ),
           child: Column(
@@ -297,8 +327,8 @@ class ContentsBubble extends StatelessWidget {
                     bottomLeft: Radius.circular(20.0)),
                 child: Image.network(
                   image,
-                  height: MediaQuery.of(context).size.height * (0.3),
-                  fit: BoxFit.fill,
+                  height: MediaQuery.of(context).size.height * (0.2),
+                  fit: BoxFit.cover,
                 ),
               ),
             ],

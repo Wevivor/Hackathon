@@ -90,8 +90,7 @@ class _MyProfileState extends State<MyProfile> {
   }
 }
 
-///////////내콘텐츠 리스트////////////////////
-
+///////////내카테고리 리스트////////////////////
 class MyCategory extends StatelessWidget {
   const MyCategory({Key? key}) : super(key: key);
 
@@ -105,6 +104,7 @@ class MyCategory extends StatelessWidget {
       ],
       headerWidget: headerWidget(context),
       headerBottomBar: headerBottomBarWidget(),
+      headerExpandedHeight: 0.38, //헤드 height
       body: [
         BottomListview(),
         // listView(),

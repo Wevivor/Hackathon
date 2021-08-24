@@ -1,3 +1,5 @@
+import 'package:agile_hackathon/widget/bottombar.dart';
+import 'package:agile_hackathon/widget/search.dart';
 import 'package:flutter/material.dart';
 
 class MyContents extends StatefulWidget {
@@ -11,6 +13,7 @@ class _MyContentsState extends State<MyContents> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+        resizeToAvoidBottomInset: false,
         appBar: AppBar(
             iconTheme: IconThemeData(color: Colors.black),
             backgroundColor: Colors.white,
@@ -28,10 +31,12 @@ class _MyContentsState extends State<MyContents> {
             )),
         body: Column(
           children: <Widget>[
+            Search(),
             DefaultTabController(
-              length: 2,
+              length: 4,
               initialIndex: 0,
               child: SizedBox(
+                height: 500,
                 child: Column(
                   children: <Widget>[
                     TabBar(
@@ -41,24 +46,33 @@ class _MyContentsState extends State<MyContents> {
                           TextStyle(fontSize: 15, fontWeight: FontWeight.bold),
                       tabs: [
                         Tab(
-                          text: '내 카테고리',
+                          text: '전체보기',
                         ),
                         Tab(
-                          text: '내 클레이',
+                          text: '카테고리',
+                        ),
+                        Tab(
+                          text: '카테고리',
+                        ),
+                        Tab(
+                          text: '카테고리',
                         ),
                       ],
                     ),
                     SingleChildScrollView(
                       child: SizedBox(
-                        height: 10000,
+                        height: 900,
                         child: TabBarView(
                           children: <Widget>[
-                            allContents(),
-                            allContents(),
+                            AllContents(),
+                            AllContents(),
+                            AllContents(),
+                            AllContents(),
                           ], //카테고리 각버튼별 화면
                         ),
                       ),
                     ),
+                    // SizedBox(height: 2, child: BottomBar())
                   ],
                 ),
               ),
@@ -69,8 +83,24 @@ class _MyContentsState extends State<MyContents> {
 }
 
 //전체 콘텐츠 불러오기
-Container allContents() {
-  return Container(
-    child: Image.asset('images/cha.png'),
-  );
+class AllContents extends StatefulWidget {
+  const AllContents({Key? key}) : super(key: key);
+
+  @override
+  _AllContentsState createState() => _AllContentsState();
+}
+
+class _AllContentsState extends State<AllContents> {
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+        mainAxisAlignment: MainAxisAlignment.start,
+        children: <Widget>[
+          // Image.asset(
+          //   'images/pink.jpg',
+          //   width: 100,
+          //   height: 300,
+          // ),
+        ]);
+  }
 }

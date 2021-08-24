@@ -15,7 +15,7 @@ class _BottomBarState extends State<BottomBar> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: DefaultTabController(
-        length: 3,
+        length: 5,
         child: Scaffold(
           body: TabBarView(
             //화면에 들어갈 부분
@@ -46,10 +46,24 @@ class _BottomBarState extends State<BottomBar> {
                 ),
                 Tab(
                   icon: Icon(
+                    Icons.group,
+                    color: Colors.black,
+                  ),
+                  text: '그룹',
+                ),
+                Tab(
+                  icon: Icon(
                     Icons.add,
                     color: Colors.black,
                   ),
                   text: 'ADD',
+                ),
+                Tab(
+                  icon: Icon(
+                    Icons.chat_bubble,
+                    color: Colors.black,
+                  ),
+                  text: '채팅',
                 ),
                 Tab(
                   icon: Icon(

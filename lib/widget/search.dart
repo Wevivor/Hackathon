@@ -1,4 +1,3 @@
-import 'package:agile_hackathon/widget/filter.dart';
 import 'package:flutter/material.dart';
 
 class Search extends StatefulWidget {
@@ -87,7 +86,29 @@ class _SearchState extends State<Search> {
                 ),
                 IconButton(
                     onPressed: () {
-                      FilterSheet(); //정렬기준
+                      showModalBottomSheet(
+                        context: context,
+                        builder: (context) {
+                          // Using Wrap makes the bottom sheet height the height of the content.
+                          // Otherwise, the height will be half the height of the screen.
+                          return Wrap(
+                            children: [
+                              ListTile(
+                                leading: Icon(Icons.share),
+                                title: Text('날짜별'),
+                              ),
+                              ListTile(
+                                leading: Icon(Icons.link),
+                                title: Text('형식별'),
+                              ),
+                              ListTile(
+                                leading: Icon(Icons.edit),
+                                title: Text('색깔별'),
+                              ),
+                            ],
+                          );
+                        },
+                      ); //정렬기준
                     },
                     icon: Icon(Icons.filter_alt_rounded))
               ],

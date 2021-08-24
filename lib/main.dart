@@ -1,3 +1,4 @@
+import 'package:agile_hackathon/screen/makeclay_screen.dart';
 import 'package:agile_hackathon/screen/splash.dart';
 import 'package:flutter/material.dart';
 
@@ -18,7 +19,7 @@ class MyApp extends StatelessWidget {
         primaryColorLight: Colors.white,
         // primaryColor: Colors.black,
       ),
-      home: Splash(),
+      home: MakeClay(),
       // initialRoute: App.id,
       // routes: {
       //   App.id: (context) => App(),

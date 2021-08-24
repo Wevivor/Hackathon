@@ -81,7 +81,7 @@ class _MyProfileState extends State<MyProfile> {
               //     color: Colors.black,
               //   ),
               // ),
-              // MyCategory()
+              // MyClayScreen()
             ],
           ),
         ),
@@ -132,11 +132,11 @@ class MyCategory extends StatelessWidget {
   }
 }
 
+////////프로필//////////
 Container headerWidget(BuildContext context) => Container(
       child: Center(
         child: Column(
           children: [
-            //프로필
             SafeArea(
               child: Column(
                 children: <Widget>[
@@ -152,7 +152,7 @@ Container headerWidget(BuildContext context) => Container(
                     style: TextStyle(
                         fontWeight: FontWeight.bold,
                         fontSize: 20,
-                        color: Colors.yellow),
+                        color: Color(0xFFFFD82A)),
                   ),
                   SizedBox(
                     height: 10,
@@ -181,6 +181,7 @@ Container headerWidget(BuildContext context) => Container(
       ),
     );
 
+//중앙 탭바
 class BottomListview extends StatefulWidget {
   @override
   _BottomListviewState createState() => _BottomListviewState();
@@ -227,59 +228,136 @@ class _BottomListviewState extends State<BottomListview> {
 class MyCategoryScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return SafeArea(
-      child: Column(
+    return Container(
+      padding: EdgeInsets.only(left: 18, right: 18),
+      child: GridView.count(
+        mainAxisSpacing: 10,
+        crossAxisSpacing: 5,
+        crossAxisCount: 2,
+        childAspectRatio: (50 / 30),
         children: <Widget>[
-          //카테고리 첫줄
-          Row(
-            children: <Widget>[
-              Padding(
-                padding: EdgeInsets.only(left: 30, right: 20),
-                child: ElevatedButton(
-                  onPressed: () {
-                    Navigator.push(context, MaterialPageRoute<void>(
-                        builder: (BuildContext context) {
-                      return MyContents();
-                    }));
-                  },
-                  child: Text('전체보기'),
-                  style: ButtonStyle(
-                      padding: MaterialStateProperty.all(
-                          EdgeInsets.fromLTRB(60, 40, 60, 40)),
-                      backgroundColor: MaterialStateProperty.all(Colors.black)),
+          ElevatedButton(
+            onPressed: () {
+              Navigator.push(context,
+                  MaterialPageRoute<void>(builder: (BuildContext context) {
+                return MyContents();
+              }));
+            },
+            child: Text('전체보기'),
+            style: ButtonStyle(
+                shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+                  RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(18.0),
+                      side: BorderSide(
+                          color: Color(0x63585858)) // border line color
+                      ),
                 ),
-              ),
-              ElevatedButton(
-                onPressed: () {},
-                child: Text(
-                  '카테고리1',
-                  style: TextStyle(color: Colors.black),
-                ),
-                style: ButtonStyle(
-                    backgroundColor: MaterialStateProperty.all(Colors.yellow)),
-              ),
-            ],
+                backgroundColor: MaterialStateProperty.all(Color(0xFF000000))),
           ),
-          //카테고리 둘째 줄
-          Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: <Widget>[
-              ElevatedButton(
-                onPressed: () {},
-                child: Text(
-                  '카테고리2',
-                  style: TextStyle(color: Colors.black),
+          ElevatedButton(
+            onPressed: () {
+              Navigator.push(context,
+                  MaterialPageRoute<void>(builder: (BuildContext context) {
+                return MyContents();
+              }));
+            },
+            child: Text(
+              '카테고리1',
+              style: TextStyle(color: Colors.black),
+            ),
+            style: ButtonStyle(
+                shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+                  RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(18.0),
+                    // side: BorderSide(
+                    //     color: Color(0x33585858)) // border line color
+                  ),
                 ),
-                style: ButtonStyle(
-                    backgroundColor: MaterialStateProperty.all(Colors.orange)),
-              ),
-              ElevatedButton(
-                onPressed: () {},
-                child: Text('카테고리3'),
-                style: ButtonStyle(
-                    backgroundColor: MaterialStateProperty.all(Colors.black)),
-              ),
-            ],
+                backgroundColor: MaterialStateProperty.all(Color(0xFFFFD82A))),
+          ),
+          ElevatedButton(
+            onPressed: () {
+              Navigator.push(context,
+                  MaterialPageRoute<void>(builder: (BuildContext context) {
+                return MyContents();
+              }));
+            },
+            child: Text(
+              '카테고리2',
+              style: TextStyle(color: Colors.black),
+            ),
+            style: ButtonStyle(
+                shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+                  RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(18.0),
+                    // side: BorderSide(
+                    //     color: Color(0x33585858)) // border line color
+                  ),
+                ),
+                backgroundColor: MaterialStateProperty.all(Color(0xFFFFD82A))),
+          ),
+          ElevatedButton(
+            onPressed: () {
+              Navigator.push(context,
+                  MaterialPageRoute<void>(builder: (BuildContext context) {
+                return MyContents();
+              }));
+            },
+            child: Text(
+              '카테고리3',
+              style: TextStyle(color: Colors.black),
+            ),
+            style: ButtonStyle(
+                shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+                  RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(18.0),
+                    // side: BorderSide(
+                    //     color: Color(0x33585858)) // border line color
+                  ),
+                ),
+                backgroundColor: MaterialStateProperty.all(Color(0xFFFFFFFF))),
+          ),
+          ElevatedButton(
+            onPressed: () {
+              Navigator.push(context,
+                  MaterialPageRoute<void>(builder: (BuildContext context) {
+                return MyContents();
+              }));
+            },
+            child: Text(
+              '카테고리3',
+              style: TextStyle(color: Colors.black),
+            ),
+            style: ButtonStyle(
+                shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+                  RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(18.0),
+                    // side: BorderSide(
+                    //     color: Color(0x33585858)) // border line color
+                  ),
+                ),
+                backgroundColor: MaterialStateProperty.all(Color(0xFFFFFFFF))),
+          ),
+          ElevatedButton(
+            onPressed: () {
+              Navigator.push(context,
+                  MaterialPageRoute<void>(builder: (BuildContext context) {
+                return MyContents();
+              }));
+            },
+            child: Text(
+              '카테고리3',
+              style: TextStyle(color: Colors.black),
+            ),
+            style: ButtonStyle(
+                shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+                  RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(18.0),
+                    // side: BorderSide(
+                    //     color: Color(0x33585858)) // border line color
+                  ),
+                ),
+                backgroundColor: MaterialStateProperty.all(Color(0xFFFFEB3B))),
           ),
         ],
       ),
@@ -287,13 +365,14 @@ class MyCategoryScreen extends StatelessWidget {
   }
 }
 
+////하단 내 클레이 모음 화면
 class MyClayScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
       padding: EdgeInsets.only(left: 20, right: 20),
       child: GridView.count(
-        // mainAxisSpacing: 30,
+        mainAxisSpacing: 10,
         crossAxisSpacing: 10,
         crossAxisCount: 3,
         children: <Widget>[
@@ -301,10 +380,25 @@ class MyClayScreen extends StatelessWidget {
             'images/pink.jpg',
           ),
           Image.asset(
-            'images/puple.jpg',
+            'images/pink.jpg',
           ),
           Image.asset(
-            'images/blue.jpg',
+            'images/pink.jpg',
+          ),
+          Image.asset(
+            'images/puple.JPG',
+          ),
+          Image.asset(
+            'images/blue.JPG',
+          ),
+          Image.asset(
+            'images/blue.JPG',
+          ),
+          Image.asset(
+            'images/blue.JPG',
+          ),
+          Image.asset(
+            'images/blue.JPG',
           ),
         ],
       ),

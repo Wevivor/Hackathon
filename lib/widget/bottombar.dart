@@ -1,4 +1,6 @@
 // import 'package:flutter/cupertino.dart';
+import 'package:agile_hackathon/screen/chat_screen.dart';
+import 'package:agile_hackathon/screen/group_screen.dart';
 import 'package:agile_hackathon/screen/share_screen.dart';
 import 'package:agile_hackathon/screen/articlay_screen.dart';
 import 'package:agile_hackathon/screen/mypage_screen.dart';
@@ -21,8 +23,10 @@ class _BottomBarState extends State<BottomBar> {
             //화면에 들어갈 부분
             children: [
               Articlay(),
+              GroupScreen(),
               ShareScreen(),
               MyCategory(), //마이페이지
+              ChatScreen()
             ],
           ),
           //네비게이션 바

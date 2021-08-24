@@ -25,8 +25,8 @@ class _BottomBarState extends State<BottomBar> {
               Articlay(),
               GroupScreen(),
               ShareScreen(),
+              ChatScreen(),
               MyCategory(), //마이페이지
-              ChatScreen()
             ],
           ),
           //네비게이션 바

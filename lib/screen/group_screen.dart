@@ -55,34 +55,33 @@ class GroupScreen extends StatelessWidget {
               //완성된 캐릭터
               SizedBox(height: 17.0),
               SizedBox(
-                  height: MediaQuery.of(context).size.height * (0.8),
                   child: Column(
-                    children: [
-                      Container(
-                        child: Padding(
-                          padding: const EdgeInsets.symmetric(horizontal: 20),
-                          child: Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            children: [
-                              Text(
-                                "추천 그룹",
-                                style: TextStyle(
-                                  color: Colors.black,
-                                  fontSize: 18.0,
-                                  fontWeight: FontWeight.bold,
-                                ),
-                              ),
-                              Icon(Icons.arrow_forward_ios_sharp),
-                            ],
+                children: [
+                  Container(
+                    child: Padding(
+                      padding: const EdgeInsets.symmetric(horizontal: 20),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Text(
+                            "추천 그룹",
+                            style: TextStyle(
+                              color: Colors.black,
+                              fontSize: 18.0,
+                              fontWeight: FontWeight.bold,
+                            ),
                           ),
-                        ),
+                          Icon(Icons.arrow_forward_ios_sharp),
+                        ],
                       ),
-                      SizedBox(height: 3),
-                      SizedBox(
-                          height: MediaQuery.of(context).size.height * (0.7),
-                          child: FaceScreen()),
-                    ],
-                  ))
+                    ),
+                  ),
+                  SizedBox(height: 3),
+                  SizedBox(
+                      height: MediaQuery.of(context).size.height * (0.68),
+                      child: FaceScreen()),
+                ],
+              ))
             ],
           ),
         ),

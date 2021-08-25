@@ -301,10 +301,6 @@ class ContentsBubble extends StatelessWidget {
       child: Container(
         // 배경이 흐린 회색으로 바뀜.
         child: Container(
-          decoration: BoxDecoration(
-            color: Colors.yellow,
-            borderRadius: BorderRadius.all(Radius.circular(20)),
-          ),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [

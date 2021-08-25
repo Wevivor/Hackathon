@@ -13,7 +13,7 @@ List imgList = [
   'https://images.unsplash.com/photo-1554321586-92083ba0a115?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60',
   'https://images.unsplash.com/photo-1536679545597-c2e5e1946495?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60',
   'https://images.unsplash.com/photo-1543922596-b3bbaba80649?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60',
-  'https://images.unsplash.com/photo-1502943693086-33b5b1cfdf2f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=668&q=80'
+  'https://images.unsplash.com/photo-1543922596-b3bbaba80649?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60',
 ];
 
 final PageController ctrl = PageController();
@@ -61,39 +61,42 @@ final List<Widget> imageSliders = imgList
 class Articlay extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return DraggableHome(
-      // backgroundColor: Colors.transparent,
-      title: Text("Title"),
-      headerWidget: headerWidget(context),
-      headerExpandedHeight: 0.4,
-//        headerBottomBar: headerBottomBarWidget(),
-      body: [
-        BottomListview(),
-      ],
-      fullyStretchable: true,
-//        body: [
-//          Column(
-//            children: [
-//              Padding(
-//                padding: const EdgeInsets.symmetric(horizontal: 27.0),
-//                child: Row(
-//                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-//                  children: [
-//                    Text(
-//                      "Recommend",
-//                      style: TextStyle(
-//                        color: Colors.white,
-//                        fontSize: 20.0,
-//                      ),
-//                    ),
-//                    Icon(Icons.arrow_forward_ios_sharp),
-//                  ],
-//                ),
-//              ),
-//              MessageStream(),
-//            ],
-//          ),
-//        ]
+    return SizedBox(
+      height: 50,
+      child: DraggableHome(
+        // backgroundColor: Colors.transparent,
+        title: Text("Title"),
+        headerWidget: headerWidget(context),
+        headerExpandedHeight: 0.5,
+        //        headerBottomBar: headerBottomBarWidget(),
+        body: [
+          BottomListview(),
+        ],
+        fullyStretchable: true,
+        //        body: [
+        //          Column(
+        //            children: [
+        //              Padding(
+        //                padding: const EdgeInsets.symmetric(horizontal: 27.0),
+        //                child: Row(
+        //                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        //                  children: [
+        //                    Text(
+        //                      "Recommend",
+        //                      style: TextStyle(
+        //                        color: Colors.white,
+        //                        fontSize: 20.0,
+        //                      ),
+        //                    ),
+        //                    Icon(Icons.arrow_forward_ios_sharp),
+        //                  ],
+        //                ),
+        //              ),
+        //              MessageStream(),
+        //            ],
+        //          ),
+        //        ]
+      ),
     );
   }
 }
@@ -182,23 +185,39 @@ Container headerWidget(BuildContext context) => Container(
         ),
         body: Column(
           children: [
-            Center(
-              child: Column(
-                children: [
-                  SizedBox(height: 10.0),
-                  SizedBox(
-                    child: CarouselSlider(
-                      options: CarouselOptions(
-                        height: 220.0,
-                        enlargeCenterPage: true,
-                      ),
-                      items: imageSliders,
-                    ),
-                  ),
-                  SizedBox(height: 20.0),
-                ],
+            // SizedBox(height: 10.0),
+            // CarouselSlider.builder(
+            //   itemCount: 15,
+            //   itemBuilder: (BuildContext context, int itemIndex,
+            //           int pageViewIndex) =>
+            //       Container(
+            //           child: Text(itemIndex.toString()),
+            //           ),
+            //   options: CarouselOptions(
+            //     height: 220.0,
+            //     autoPlay: false,
+            //     enlargeCenterPage: true,
+            //     viewportFraction: 0.9,
+            //     aspectRatio: 2.0,
+            //     // aspectRatio: 16 / 9,
+            //     // viewportFraction: 0.8,
+            //     initialPage: 2,
+            //   ),
+            // ),
+            CarouselSlider(
+              options: CarouselOptions(
+                height: 300.0,
+                autoPlay: false,
+                enlargeCenterPage: true,
+                // viewportFraction: 0.9,
+                // aspectRatio: .0,
+                aspectRatio: 4 / 10,
+                viewportFraction: 1, //화면채우기
+                initialPage: 1,
               ),
+              items: imageSliders,
             ),
+            SizedBox(height: 20.0),
           ],
         ),
       ),

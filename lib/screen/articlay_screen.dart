@@ -1,9 +1,6 @@
-<<<<<<< HEAD
 import 'package:agile_hackathon/screen/arrange_screen.dart';
-=======
 import 'package:agile_hackathon/screen/aticle_content_screen.dart';
 import 'package:agile_hackathon/screen/share_screen.dart';
->>>>>>> d9adb7dd7d3927135b7fad30935c76e6d12bd9de
 import 'package:flutter/material.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
@@ -118,11 +115,7 @@ Container headerWidget(BuildContext context) => Container(
                   context,
                   MaterialPageRoute(
                     builder: (context) =>
-<<<<<<< HEAD
-                        Center(child: ArrangeScreen()), //화면이동 코드
-=======
                         Center(child: ArticleScreen()), //화면이동 코드
->>>>>>> d9adb7dd7d3927135b7fad30935c76e6d12bd9de
                   ),
                 );
               },

@@ -131,21 +131,11 @@ class _ArticleScreenState extends State<ArticleScreen> {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: <Widget>[
                         Text(
-                          '1.아보카도 샐러드',
+                          '1.사과',
                           style: TextStyle(fontWeight: FontWeight.bold),
                         ),
-                        Text(' -아보카도'),
+                        Text(' -수분이 날라가지 않도록 밀봉 후 보관'),
                         Text(' -계란'),
-                        Text(' -양상추'),
-                        Padding(padding: EdgeInsets.only(bottom: 10)),
-                        Text(
-                          '2.단호박 샐러드',
-                          style: TextStyle(fontWeight: FontWeight.bold),
-                        ),
-                        Text(' -단호박'),
-                        Text(' -당근'),
-                        Text(' -건포도'),
-                        Text(' -오이'),
                       ]),
                 ]),
               ]),

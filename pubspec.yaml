@@ -81,6 +81,7 @@ flutter:
     - images/a1.png
     - images/a2.png
     - images/a3.png
+    - images/tutorial.png
 
 
   # An image asset can refer to one or more resolution-specific "variants", see

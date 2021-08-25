@@ -1,4 +1,9 @@
+<<<<<<< HEAD
 import 'package:agile_hackathon/screen/arrange_screen.dart';
+=======
+import 'package:agile_hackathon/screen/aticle_content_screen.dart';
+import 'package:agile_hackathon/screen/share_screen.dart';
+>>>>>>> d9adb7dd7d3927135b7fad30935c76e6d12bd9de
 import 'package:flutter/material.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
@@ -7,7 +12,7 @@ import 'group_screen.dart';
 
 final _firestore = FirebaseFirestore.instance;
 
-int _current = 0;
+// int _current = 0;
 List imgList = [
   'https://images.unsplash.com/photo-1502117859338-fd9daa518a9a?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60',
   'https://images.unsplash.com/photo-1554321586-92083ba0a115?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60',
@@ -25,33 +30,35 @@ final List<Widget> imageSliders = imgList
                 child: Stack(
                   children: <Widget>[
                     Image.network(item, height: 300, fit: BoxFit.cover),
-                    Positioned(
-                      bottom: 0.0,
-                      left: 0.0,
-                      right: 0.0,
-                      child: Container(
-                        decoration: BoxDecoration(
-                          gradient: LinearGradient(
-                            colors: [
-                              Color.fromARGB(200, 0, 0, 0),
-                              Color.fromARGB(0, 0, 0, 0)
-                            ],
-                            begin: Alignment.bottomCenter,
-                            end: Alignment.topCenter,
-                          ),
-                        ),
-                        padding: EdgeInsets.symmetric(
-                            vertical: 10.0, horizontal: 20.0),
-                        child: Text(
-                          'No. ${imgList.indexOf(item)} image',
-                          style: TextStyle(
-                            color: Colors.white,
-                            fontSize: 20.0,
-                            fontWeight: FontWeight.bold,
-                          ),
-                        ),
-                      ),
-                    ),
+
+//코로셀 위 글씨부분
+                    // Positioned(
+                    //   bottom: 0.0,
+                    //   left: 0.0,
+                    //   right: 0.0,
+                    //   child: Container(
+                    //     decoration: BoxDecoration(
+                    //       gradient: LinearGradient(
+                    //         colors: [
+                    //           Color.fromARGB(200, 0, 0, 0),
+                    //           Color.fromARGB(0, 0, 0, 0)
+                    //         ],
+                    //         begin: Alignment.bottomCenter,
+                    //         end: Alignment.topCenter,
+                    //       ),
+                    //     ),
+                    //     padding: EdgeInsets.symmetric(
+                    //         vertical: 10.0, horizontal: 20.0),
+                    //     child: Text(
+                    //       ' ${imgList.indexOf(item)} image',
+                    //       style: TextStyle(
+                    //         color: Colors.white,
+                    //         fontSize: 20.0,
+                    //         fontWeight: FontWeight.bold,
+                    //       ),
+                    //     ),
+                    //   ),
+                    // ),
                   ],
                 )),
           ),
@@ -73,73 +80,10 @@ class Articlay extends StatelessWidget {
           BottomListview(),
         ],
         fullyStretchable: true,
-        //        body: [
-        //          Column(
-        //            children: [
-        //              Padding(
-        //                padding: const EdgeInsets.symmetric(horizontal: 27.0),
-        //                child: Row(
-        //                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        //                  children: [
-        //                    Text(
-        //                      "Recommend",
-        //                      style: TextStyle(
-        //                        color: Colors.white,
-        //                        fontSize: 20.0,
-        //                      ),
-        //                    ),
-        //                    Icon(Icons.arrow_forward_ios_sharp),
-        //                  ],
-        //                ),
-        //              ),
-        //              MessageStream(),
-        //            ],
-        //          ),
-        //        ]
       ),
     );
   }
 }
-
-//class recommendBottomSheet extends StatelessWidget {
-//  @override
-//  Widget build(BuildContext context) {
-//    return DraggableHome(
-//      title: Text("아티클레이"),
-//
-//      headerWidget: headerWidget(context),
-////        headerBottomBar: headerBottomBarWidget(),
-//
-//      body: [
-//        BottomListview(),
-//      ],
-//      fullyStretchable: true,
-////        body: [
-////          Column(
-////            children: [
-////              Padding(
-////                padding: const EdgeInsets.symmetric(horizontal: 27.0),
-////                child: Row(
-////                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-////                  children: [
-////                    Text(
-////                      "Recommend",
-////                      style: TextStyle(
-////                        color: Colors.white,
-////                        fontSize: 20.0,
-////                      ),
-////                    ),
-////                    Icon(Icons.arrow_forward_ios_sharp),
-////                  ],
-////                ),
-////              ),
-////              MessageStream(),
-////            ],
-////          ),
-////        ]
-//    );
-//  }
-//}
 
 Container headerWidget(BuildContext context) => Container(
       decoration: BoxDecoration(
@@ -174,7 +118,11 @@ Container headerWidget(BuildContext context) => Container(
                   context,
                   MaterialPageRoute(
                     builder: (context) =>
+<<<<<<< HEAD
                         Center(child: ArrangeScreen()), //화면이동 코드
+=======
+                        Center(child: ArticleScreen()), //화면이동 코드
+>>>>>>> d9adb7dd7d3927135b7fad30935c76e6d12bd9de
                   ),
                 );
               },

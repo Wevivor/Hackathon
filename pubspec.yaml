@@ -38,7 +38,11 @@ dependencies:
   cloud_firestore: ^2.5.0
   metadata_fetch: ^0.4.1
   carousel_slider: ^4.0.0
+<<<<<<< HEAD
   webview_flutter: ^2.0.12
+=======
+  background_app_bar: ^2.0.0
+>>>>>>> d9adb7dd7d3927135b7fad30935c76e6d12bd9de
 
 dev_dependencies:
   flutter_test:
@@ -71,12 +75,18 @@ flutter:
     - images/article1.png
     - images/article2.png
     - images/article3.png
+<<<<<<< HEAD
     - images/group1.png
     - images/group2.png
     - images/group3.png
     - images/cook/
     - images/startup/
     - images/trip/
+=======
+    - images/a1.png
+    - images/a2.png
+    - images/a3.png
+>>>>>>> d9adb7dd7d3927135b7fad30935c76e6d12bd9de
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.

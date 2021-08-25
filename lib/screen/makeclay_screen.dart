@@ -4,6 +4,10 @@ import 'package:flutter/cupertino.dart';
 
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
+
+final _firestore = FirebaseFirestore.instance;
+String newNickname = "";
 
 class MakeClay extends StatelessWidget {
   static String id = "makeclay_screen";
@@ -26,6 +30,21 @@ class MakeClay extends StatelessWidget {
               textStyle: const TextStyle(fontSize: 18),
             ),
             onPressed: () async {
+              _firestore
+                  .collection('${FirebaseAuth.instance.currentUser!.uid}')
+                  .doc("userInfo")
+                  .set({
+                'uid': '${FirebaseAuth.instance.currentUser!.uid}',
+                'userEmail': '${FirebaseAuth.instance.currentUser!.email}',
+                'userName': '${FirebaseAuth.instance.currentUser!.displayName}',
+                'userNickname': '$newNickname',
+                'userClayImage': 'dd'
+              });
+              _firestore
+                  .collection('${FirebaseAuth.instance.currentUser!.uid}')
+                  .doc("userContents")
+                  .collection("userContents")
+                  .add({});
               final nickname = Clay('닉네임', '이미지파일이름'); //textfield에 입력받은data
               final result = await Navigator.push(
                 //push속성 : 다음화면으로 이동 -새로운 화면이 표시되어도 이전 화면은 메모리에 남게 됨.
@@ -109,6 +128,9 @@ class MakeClay extends StatelessWidget {
                     border: InputBorder.none,
                     contentPadding: EdgeInsets.all(10),
                   ),
+                  onChanged: (value) {
+                    newNickname = value;
+                  },
                 ),
               ),
               SizedBox(height: 20.0),

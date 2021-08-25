@@ -39,7 +39,7 @@ dependencies:
   metadata_fetch: ^0.4.1
   carousel_slider: ^4.0.0
   flutter_multi_carousel: ^1.0.0
-  flutter_swiper : ^1.1.6
+  filter_list: ^1.0.0
 
 dev_dependencies:
   flutter_test:

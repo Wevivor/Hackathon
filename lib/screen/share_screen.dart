@@ -5,9 +5,17 @@ import 'package:flutter/foundation.dart';
 import 'package:metadata_fetch/metadata_fetch.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:filter_list/filter_list.dart';
+import 'package:flutter/cupertino.dart';
 
 final _firestore = FirebaseFirestore.instance;
+const List<String> cateList = [
+  '내 콘텐츠',
+  '창업 모음',
+  '요리백과',
+  '여행에미치다',
+  '맛집 모음',
+  '영화'
+];
 
 class ShareScreen extends StatefulWidget {
   static String id = "share_screen";
@@ -19,12 +27,54 @@ class _ShareScreenState extends State<ShareScreen> {
   late StreamSubscription _intentDataStreamSubscription;
   String? _sharedText;
   var data;
+  String _selectedValue = "";
 
   List<String> urls = [
     'https://flyer.chat',
   ];
   String newTitle = "";
   String newDescription = "";
+
+  CupertinoPicker iOSPicker() {
+    // ios
+    List<Text> PickerItems = [];
+    //for(String currency in currenciesList)
+    for (int i = 0; i < cateList.length; i++) {
+      String category = cateList[i]; //없어도 됨
+      PickerItems.add(Text(category));
+    }
+
+    return CupertinoPicker(
+        backgroundColor: Colors.white,
+        itemExtent: 32.0,
+        onSelectedItemChanged: (value) {
+          setState(() {
+            _selectedValue = cateList[value];
+          });
+        },
+        children: PickerItems);
+  }
+
+//  DropdownButton<String> androidDropdown() {
+//    List<DropdownMenuItem<String>> dropdownItems = [];
+//    for (String category in cateList) {
+//      var newItem = DropdownMenuItem(
+//        child: Text(category),
+//        value: category,
+//      );
+//      dropdownItems.add(newItem);
+//    }
+//
+//    return DropdownButton<String>(
+//      value: _selectedValue,
+//      items: dropdownItems,
+//      onChanged: (value) {
+//        setState(() {
+//          _selectedValue = value!;
+//        });
+//      },
+//    );
+//  }
 
   @override
   void initState() {
@@ -85,11 +135,33 @@ class _ShareScreenState extends State<ShareScreen> {
                             newDescription = value;
                           },
                         ),
-                        SizedBox(
-                          height: MediaQuery.of(context).size.height * (0.3),
-                          child:
-                              Image.network(data?.image, fit: BoxFit.fitWidth),
-                        ),
+                        Container(height: 150, child: iOSPicker()),
+//                          height: 150,
+//                          width: ,
+//                          alignment: Alignment.center,
+//                          child: DropdownButton<String>(
+//                            hint: Text("카테고리를 선택하세요"),
+//                            itemHeight: 50,
+//                            menuMaxHeight: 150,
+//                            value: "USD", //STARTING VALUE
+//                            items: [
+//                              DropdownMenuItem(
+//                                child: Text('USD'),
+//                                value: 'USD',
+//                              ),
+//                              DropdownMenuItem(
+//                                child: Text('EUR'),
+//                                value: 'EUR',
+//                              ),
+//                              DropdownMenuItem(
+//                                child: Text('GBP'),
+//                                value: 'GBP',
+//                              ),
+//                            ],
+//                            onChanged: (value) {
+//                              _selectedValue = value!;
+//                            },
+//                          ),
                         FlatButton(
                           onPressed: () {
                             _firestore
@@ -104,22 +176,13 @@ class _ShareScreenState extends State<ShareScreen> {
                                   : data?.description,
                               'title': newTitle != "" ? newTitle : data?.title,
                               'image': data?.image,
-                              'time': DateTime.now()
+                              'time': DateTime.now(),
+                              'category': _selectedValue,
                             });
-
-//                            _firestore.collection('user1').add({
-//                              'url': data?.url,
-//                              'description': newDescription != ""
-//                                  ? newDescription
-//                                  : data?.description,
-//                              'title': newTitle != "" ? newTitle : data?.title,
-//                              'image': data?.image,
-//                              'time': DateTime.now()
-//                            });
                             Navigator.pop(context);
                           },
                           child: Text(
-                            'Add',
+                            '저장',
                             style: TextStyle(
                               color: Colors.white,
                             ),
@@ -280,33 +343,5 @@ class ContentsBubble extends StatelessWidget {
         ),
       ),
     );
-//    Padding(
-//      padding: const EdgeInsets.all(10.0),
-//      child: Column(
-//        crossAxisAlignment: CrossAxisAlignment.end,
-//        children: [
-//          Text(
-//            sender,
-//            style: TextStyle(fontSize: 12.0, color: Colors.black54),
-//          ),
-//          Material(
-//            borderRadius: BorderRadius.circular(30.0),
-//            elevation: 5.0, //drop shadow 그림자
-//            color: Colors.lightBlueAccent,
-//            child: Padding(
-//              padding:
-//                  const EdgeInsets.symmetric(vertical: 10.0, horizontal: 20.0),
-//              child: Text(
-//                text,
-//                style: TextStyle(
-//                  color: Colors.white,
-//                  fontSize: 15.0,
-//                ),
-//              ),
-//            ),
-//          ),
-//        ],
-//      ),
-//    );
   }
 }

@@ -38,8 +38,6 @@ dependencies:
   cloud_firestore: ^2.5.0
   metadata_fetch: ^0.4.1
   carousel_slider: ^4.0.0
-  flutter_multi_carousel: ^1.0.0
-  filter_list: ^1.0.0
 
 dev_dependencies:
   flutter_test:

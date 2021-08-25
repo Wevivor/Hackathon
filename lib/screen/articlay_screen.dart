@@ -43,7 +43,7 @@ final List<Widget> imageSliders = imgList
                         padding: EdgeInsets.symmetric(
                             vertical: 10.0, horizontal: 20.0),
                         child: Text(
-                          'No. ${imgList.indexOf(item)} image',
+                          ' ${imgList.indexOf(item)} image',
                           style: TextStyle(
                             color: Colors.white,
                             fontSize: 20.0,
@@ -73,73 +73,10 @@ class Articlay extends StatelessWidget {
           BottomListview(),
         ],
         fullyStretchable: true,
-        //        body: [
-        //          Column(
-        //            children: [
-        //              Padding(
-        //                padding: const EdgeInsets.symmetric(horizontal: 27.0),
-        //                child: Row(
-        //                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        //                  children: [
-        //                    Text(
-        //                      "Recommend",
-        //                      style: TextStyle(
-        //                        color: Colors.white,
-        //                        fontSize: 20.0,
-        //                      ),
-        //                    ),
-        //                    Icon(Icons.arrow_forward_ios_sharp),
-        //                  ],
-        //                ),
-        //              ),
-        //              MessageStream(),
-        //            ],
-        //          ),
-        //        ]
       ),
     );
   }
 }
-
-//class recommendBottomSheet extends StatelessWidget {
-//  @override
-//  Widget build(BuildContext context) {
-//    return DraggableHome(
-//      title: Text("아티클레이"),
-//
-//      headerWidget: headerWidget(context),
-////        headerBottomBar: headerBottomBarWidget(),
-//
-//      body: [
-//        BottomListview(),
-//      ],
-//      fullyStretchable: true,
-////        body: [
-////          Column(
-////            children: [
-////              Padding(
-////                padding: const EdgeInsets.symmetric(horizontal: 27.0),
-////                child: Row(
-////                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-////                  children: [
-////                    Text(
-////                      "Recommend",
-////                      style: TextStyle(
-////                        color: Colors.white,
-////                        fontSize: 20.0,
-////                      ),
-////                    ),
-////                    Icon(Icons.arrow_forward_ios_sharp),
-////                  ],
-////                ),
-////              ),
-////              MessageStream(),
-////            ],
-////          ),
-////        ]
-//    );
-//  }
-//}
 
 Container headerWidget(BuildContext context) => Container(
       decoration: BoxDecoration(

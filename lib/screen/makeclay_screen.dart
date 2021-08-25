@@ -9,8 +9,14 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 final _firestore = FirebaseFirestore.instance;
 String newNickname = "";
 
-class MakeClay extends StatelessWidget {
+class MakeClay extends StatefulWidget {
   static String id = "makeclay_screen";
+
+  @override
+  _MakeClayState createState() => _MakeClayState();
+}
+
+class _MakeClayState extends State<MakeClay> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -104,15 +110,7 @@ class MakeClay extends StatelessWidget {
                 ),
               ),
               //완성된 캐릭터
-              ClipRRect(
-                borderRadius: BorderRadius.circular(50.0),
-                child: Image.asset(
-                  'images/pink.jpg',
-                  width: 160.0,
-                  height: 160.0,
-                  fit: BoxFit.fill,
-                ),
-              ),
+              imageClay(imagePath: 'images/clay/basic.png'),
               SizedBox(height: 10.0),
               Container(
                 width: 250,
@@ -163,12 +161,12 @@ class MakeClay extends StatelessWidget {
                       labelStyle:
                           TextStyle(fontSize: 15, fontWeight: FontWeight.bold),
                       tabs: [
-                        Tab(text: "클레이 색"),
+                        Tab(text: "배경"),
                         Tab(
-                          text: "배경 색",
+                          text: "아이템",
                         ),
                         Tab(
-                          text: "옷 색",
+                          text: "컨셉",
                         ),
                         Tab(
                           text: "표정",
@@ -203,8 +201,30 @@ class MakeClay extends StatelessWidget {
   }
 }
 
+class imageClay extends StatelessWidget {
+  imageClay({required this.imagePath});
+  var imagePath = "";
+  @override
+  Widget build(BuildContext context) {
+    return ClipRRect(
+      borderRadius: BorderRadius.circular(50.0),
+      child: Image.asset(
+        imagePath,
+        width: 160.0,
+        height: 160.0,
+        fit: BoxFit.fill,
+      ),
+    );
+  }
+}
+
 //커스텀버튼 누르면 나올 하단 커스텀 창
-class FaceScreen extends StatelessWidget {
+class FaceScreen extends StatefulWidget {
+  @override
+  _FaceScreenState createState() => _FaceScreenState();
+}
+
+class _FaceScreenState extends State<FaceScreen> {
   @override
   Widget build(BuildContext context) {
     return GridView.count(
@@ -262,11 +282,24 @@ class FaceScreen extends StatelessWidget {
               color: Color(0xfff27405),
               borderRadius: BorderRadius.all(Radius.circular(10))),
         ),
-        Container(
-          padding: const EdgeInsets.all(8),
-          decoration: BoxDecoration(
-              color: Color(0xffeff299),
-              borderRadius: BorderRadius.all(Radius.circular(10))),
+        RawMaterialButton(
+          padding: const EdgeInsets.all(0),
+          onPressed: () {
+            setState(() {
+              imageClay(imagePath: 'images/clay/background2.png');
+            });
+          },
+          child: Column(
+            children: [
+              Container(
+                height: 85,
+                padding: const EdgeInsets.all(8),
+                decoration: BoxDecoration(
+                    color: Color(0xfffff27c),
+                    borderRadius: BorderRadius.all(Radius.circular(10))),
+              ),
+            ],
+          ),
         ),
         Container(
           padding: const EdgeInsets.all(8),
@@ -277,7 +310,7 @@ class FaceScreen extends StatelessWidget {
         Container(
           padding: const EdgeInsets.all(8),
           decoration: BoxDecoration(
-              color: Color(0xff7ebf3f),
+              color: Color(0xff92b798),
               borderRadius: BorderRadius.all(Radius.circular(10))),
         ),
         Container(

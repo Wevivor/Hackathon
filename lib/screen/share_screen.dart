@@ -190,111 +190,111 @@ class _ShareScreenState extends State<ShareScreen> {
         ),
         body: Column(
           mainAxisAlignment: MainAxisAlignment.center,
-          children: [MessageStream()],
+          children: [],
         ),
       ),
     );
   }
 }
 
-class MessageStream extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return StreamBuilder<QuerySnapshot>(
-      stream: _firestore.collection('user1').snapshots(),
-      builder: (context, snapshot) {
-        if (!snapshot.hasData) {
-          return Center(
-              //child: LoadingOverlay(isLoading: true, opacity: 0.2),
-              );
-        }
-        final contents = snapshot.data!.docs;
-        List<ContentsBubble> contentsBubbles = [];
-        for (var content in contents) {
-          final contentTitle = content['title'];
-          final contentDescription = content['description'];
-          final contentImage = content['image'];
-          final contentURL = content['url'];
-          final contentTime = content['time'];
-          final contentsBubble = ContentsBubble(
-              title: contentTitle,
-              description: contentDescription,
-              image: contentImage,
-              url: contentURL,
-              time: contentTime);
+//class MessageStream extends StatelessWidget {
+//  @override
+//  Widget build(BuildContext context) {
+//    return StreamBuilder<QuerySnapshot>(
+//      stream: _firestore.collection('user1').snapshots(),
+//      builder: (context, snapshot) {
+//        if (!snapshot.hasData) {
+//          return Center(
+//              //child: LoadingOverlay(isLoading: true, opacity: 0.2),
+//              );
+//        }
+//        final contents = snapshot.data!.docs;
+//        List<ContentsBubble> contentsBubbles = [];
+//        for (var content in contents) {
+//          final contentTitle = content['title'];
+//          final contentDescription = content['description'];
+//          final contentImage = content['image'];
+//          final contentURL = content['url'];
+//          final contentTime = content['time'];
+//          final contentsBubble = ContentsBubble(
+//              title: contentTitle,
+//              description: contentDescription,
+//              image: contentImage,
+//              url: contentURL,
+//              time: contentTime);
+//
+//          contentsBubbles.add(contentsBubble);
+//        }
+//        return Expanded(
+//          child: ListView(
+//            reverse: true,
+//            padding: EdgeInsets.symmetric(horizontal: 10.0, vertical: 20.0),
+////            children: contentsBubbles,
+//          ),
+//        );
+//      },
+//    );
+//  }
+//}
 
-          contentsBubbles.add(contentsBubble);
-        }
-        return Expanded(
-          child: ListView(
-            reverse: true,
-            padding: EdgeInsets.symmetric(horizontal: 10.0, vertical: 20.0),
-            children: contentsBubbles,
-          ),
-        );
-      },
-    );
-  }
-}
-
-class ContentsBubble extends StatelessWidget {
-  ContentsBubble(
-      {required this.title,
-      required this.description,
-      required this.image,
-      required this.time,
-      required this.url});
-
-  final String title;
-  final String description;
-  final String image;
-  final String url;
-  final Timestamp time;
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      padding:
-          EdgeInsets.only(bottom: MediaQuery.of(context).viewInsets.bottom),
-      child: Container(
-        color: Color(0xff757575), // 배경이 흐린 회색으로 바뀜.
-        child: Container(
-          padding: EdgeInsets.all(20.0),
-          decoration: BoxDecoration(
-            color: Colors.white,
-            borderRadius: BorderRadius.only(
-              topLeft: Radius.circular(20.0),
-              topRight: Radius.circular(20.0),
-            ),
-          ),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.stretch,
-            children: [
-              Text(
-                url,
-                textAlign: TextAlign.center,
-                style: TextStyle(
-                  color: Colors.lightBlueAccent,
-                ),
-              ),
-              Text(
-                title,
-                textAlign: TextAlign.center,
-                maxLines: 2,
-              ),
-              Text(
-                description,
-                textAlign: TextAlign.center,
-                maxLines: 2,
-              ),
-              SizedBox(
-                height: MediaQuery.of(context).size.height * (0.3),
-                child: Image.network(image, fit: BoxFit.fitWidth),
-              ),
-            ],
-          ),
-        ),
-      ),
-    );
-  }
-}
+//class ContentsBubble extends StatelessWidget {
+//  ContentsBubble(
+//      {required this.title,
+//      required this.description,
+//      required this.image,
+//      required this.time,
+//      required this.url});
+//
+//  final String title;
+//  final String description;
+//  final String image;
+//  final String url;
+//  final Timestamp time;
+//
+//  @override
+//  Widget build(BuildContext context) {
+//    return Container(
+//      padding:
+//          EdgeInsets.only(bottom: MediaQuery.of(context).viewInsets.bottom),
+//      child: Container(
+//        color: Color(0xff757575), // 배경이 흐린 회색으로 바뀜.
+//        child: Container(
+//          padding: EdgeInsets.all(20.0),
+//          decoration: BoxDecoration(
+//            color: Colors.white,
+//            borderRadius: BorderRadius.only(
+//              topLeft: Radius.circular(20.0),
+//              topRight: Radius.circular(20.0),
+//            ),
+//          ),
+//          child: Column(
+//            crossAxisAlignment: CrossAxisAlignment.stretch,
+//            children: [
+//              Text(
+//                url,
+//                textAlign: TextAlign.center,
+//                style: TextStyle(
+//                  color: Colors.lightBlueAccent,
+//                ),
+//              ),
+//              Text(
+//                title,
+//                textAlign: TextAlign.center,
+//                maxLines: 2,
+//              ),
+//              Text(
+//                description,
+//                textAlign: TextAlign.center,
+//                maxLines: 2,
+//              ),
+//              SizedBox(
+//                height: MediaQuery.of(context).size.height * (0.3),
+//                child: Image.network(image, fit: BoxFit.fitWidth),
+//              ),
+//            ],
+//          ),
+//        ),
+//      ),
+//    );
+//  }
+//}

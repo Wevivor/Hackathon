@@ -104,7 +104,7 @@ class _ALLContentsState extends State<ALLContents> {
       padding: const EdgeInsets.only(top: 5.0),
       child: Column(
         children: [
-          iter(),
+          iter("https://youtu.be/TjVP4cICwGE"),
           iter2(),
           iter3(),
         ],
@@ -113,7 +113,18 @@ class _ALLContentsState extends State<ALLContents> {
   }
 }
 
-class iter extends StatelessWidget {
+class iter extends StatefulWidget {
+  final url;
+  iter(this.url);
+  @override
+  _iterState createState() => _iterState("https://youtu.be/TjVP4cICwGE");
+}
+
+class _iterState extends State<iter> {
+  var _url;
+  final _key = UniqueKey();
+  _iterState(this._url);
+
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -143,7 +154,10 @@ class iter extends StatelessWidget {
               RawMaterialButton(
                 padding: const EdgeInsets.only(left: 18, right: 3),
                 onPressed: () {
-                  WebViewExample();
+                  WebView(
+                      key: _key,
+                      javascriptMode: JavascriptMode.unrestricted,
+                      initialUrl: _url);
                 },
                 child: Column(
                   children: [

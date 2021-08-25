@@ -55,27 +55,6 @@ class _ShareScreenState extends State<ShareScreen> {
         children: PickerItems);
   }
 
-//  DropdownButton<String> androidDropdown() {
-//    List<DropdownMenuItem<String>> dropdownItems = [];
-//    for (String category in cateList) {
-//      var newItem = DropdownMenuItem(
-//        child: Text(category),
-//        value: category,
-//      );
-//      dropdownItems.add(newItem);
-//    }
-//
-//    return DropdownButton<String>(
-//      value: _selectedValue,
-//      items: dropdownItems,
-//      onChanged: (value) {
-//        setState(() {
-//          _selectedValue = value!;
-//        });
-//      },
-//    );
-//  }
-
   @override
   void initState() {
     super.initState();
@@ -112,13 +91,13 @@ class _ShareScreenState extends State<ShareScreen> {
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.stretch,
                       children: [
-                        Text(
-                          data?.url,
-                          textAlign: TextAlign.center,
-                          style: TextStyle(
-                            color: Colors.lightBlueAccent,
-                          ),
-                        ),
+//                        Text(
+//                          data?.url,
+//                          textAlign: TextAlign.center,
+//                          style: TextStyle(
+//                            color: Colors.lightBlueAccent,
+//                          ),
+//                        ),
                         TextFormField(
                           initialValue: data?.title,
                           maxLines: 2,
@@ -127,41 +106,15 @@ class _ShareScreenState extends State<ShareScreen> {
                             newTitle = value;
                           },
                         ),
-                        TextFormField(
-                          initialValue: data?.description,
-                          maxLines: 2,
-                          //overflow: TextOverflow.ellipsis,
-                          onChanged: (value) {
-                            newDescription = value;
-                          },
-                        ),
+//                        TextFormField(
+//                          initialValue: data?.description,
+//                          maxLines: 2,
+//                          //overflow: TextOverflow.ellipsis,
+//                          onChanged: (value) {
+//                            newDescription = value;
+//                          },
+//                        ),
                         Container(height: 150, child: iOSPicker()),
-//                          height: 150,
-//                          width: ,
-//                          alignment: Alignment.center,
-//                          child: DropdownButton<String>(
-//                            hint: Text("카테고리를 선택하세요"),
-//                            itemHeight: 50,
-//                            menuMaxHeight: 150,
-//                            value: "USD", //STARTING VALUE
-//                            items: [
-//                              DropdownMenuItem(
-//                                child: Text('USD'),
-//                                value: 'USD',
-//                              ),
-//                              DropdownMenuItem(
-//                                child: Text('EUR'),
-//                                value: 'EUR',
-//                              ),
-//                              DropdownMenuItem(
-//                                child: Text('GBP'),
-//                                value: 'GBP',
-//                              ),
-//                            ],
-//                            onChanged: (value) {
-//                              _selectedValue = value!;
-//                            },
-//                          ),
                         FlatButton(
                           onPressed: () {
                             _firestore

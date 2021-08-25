@@ -228,7 +228,41 @@ class MessageStream extends StatelessWidget {
             shrinkWrap: true,
             reverse: true,
             padding: EdgeInsets.symmetric(horizontal: 10.0, vertical: 20.0),
-            children: contentsBubbles,
+            children: [
+              Padding(
+                padding: const EdgeInsets.all(5.0),
+                child: ClipRRect(
+                  borderRadius: BorderRadius.all(Radius.circular(20.0)),
+                  child: Image.asset(
+                    'images/article1.png',
+                    height: MediaQuery.of(context).size.height * (0.2),
+                    fit: BoxFit.cover,
+                  ),
+                ),
+              ),
+              Padding(
+                padding: const EdgeInsets.all(5.0),
+                child: ClipRRect(
+                  borderRadius: BorderRadius.all(Radius.circular(20.0)),
+                  child: Image.asset(
+                    'images/article2.png',
+                    height: MediaQuery.of(context).size.height * (0.2),
+                    fit: BoxFit.cover,
+                  ),
+                ),
+              ),
+              Padding(
+                padding: const EdgeInsets.all(5.0),
+                child: ClipRRect(
+                  borderRadius: BorderRadius.all(Radius.circular(20.0)),
+                  child: Image.asset(
+                    'images/article3.png',
+                    height: MediaQuery.of(context).size.height * (0.2),
+                    fit: BoxFit.cover,
+                  ),
+                ),
+              ),
+            ],
           ),
         );
       },
@@ -257,26 +291,9 @@ class ContentsBubble extends StatelessWidget {
       child: Container(
         // 배경이 흐린 회색으로 바뀜.
         child: Container(
-          decoration: BoxDecoration(
-            color: Colors.yellow,
-            borderRadius: BorderRadius.all(Radius.circular(20)),
-          ),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
-              Padding(
-                padding:
-                    EdgeInsets.only(top: 15.0, left: 10, right: 10, bottom: 10),
-                child: Text(
-                  title,
-                  textAlign: TextAlign.center,
-                  maxLines: 1,
-                ),
-              ),
-//              SizedBox(
-//                height: MediaQuery.of(context).size.height * (0.3),
-//                child: Image.network(image, fit: BoxFit.cover),
-//              ),
               ClipRRect(
                 borderRadius: BorderRadius.only(
                     bottomRight: Radius.circular(20.0),

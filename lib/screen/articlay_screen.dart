@@ -1,3 +1,4 @@
+import 'package:agile_hackathon/screen/aticle_content_screen.dart';
 import 'package:agile_hackathon/screen/share_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:carousel_slider/carousel_slider.dart';
@@ -7,7 +8,7 @@ import 'group_screen.dart';
 
 final _firestore = FirebaseFirestore.instance;
 
-int _current = 0;
+// int _current = 0;
 List imgList = [
   'https://images.unsplash.com/photo-1502117859338-fd9daa518a9a?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60',
   'https://images.unsplash.com/photo-1554321586-92083ba0a115?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60',
@@ -24,34 +25,36 @@ final List<Widget> imageSliders = imgList
                 borderRadius: BorderRadius.all(Radius.circular(5.0)),
                 child: Stack(
                   children: <Widget>[
-                    Image.network(item, height: 300, fit: BoxFit.cover),
-                    Positioned(
-                      bottom: 0.0,
-                      left: 0.0,
-                      right: 0.0,
-                      child: Container(
-                        decoration: BoxDecoration(
-                          gradient: LinearGradient(
-                            colors: [
-                              Color.fromARGB(200, 0, 0, 0),
-                              Color.fromARGB(0, 0, 0, 0)
-                            ],
-                            begin: Alignment.bottomCenter,
-                            end: Alignment.topCenter,
-                          ),
-                        ),
-                        padding: EdgeInsets.symmetric(
-                            vertical: 10.0, horizontal: 20.0),
-                        child: Text(
-                          ' ${imgList.indexOf(item)} image',
-                          style: TextStyle(
-                            color: Colors.white,
-                            fontSize: 20.0,
-                            fontWeight: FontWeight.bold,
-                          ),
-                        ),
-                      ),
-                    ),
+                    // Image.network(item, height: 300, fit: BoxFit.cover),
+
+//코로셀 위 글씨부분
+                    // Positioned(
+                    //   bottom: 0.0,
+                    //   left: 0.0,
+                    //   right: 0.0,
+                    //   child: Container(
+                    //     decoration: BoxDecoration(
+                    //       gradient: LinearGradient(
+                    //         colors: [
+                    //           Color.fromARGB(200, 0, 0, 0),
+                    //           Color.fromARGB(0, 0, 0, 0)
+                    //         ],
+                    //         begin: Alignment.bottomCenter,
+                    //         end: Alignment.topCenter,
+                    //       ),
+                    //     ),
+                    //     padding: EdgeInsets.symmetric(
+                    //         vertical: 10.0, horizontal: 20.0),
+                    //     child: Text(
+                    //       ' ${imgList.indexOf(item)} image',
+                    //       style: TextStyle(
+                    //         color: Colors.white,
+                    //         fontSize: 20.0,
+                    //         fontWeight: FontWeight.bold,
+                    //       ),
+                    //     ),
+                    //   ),
+                    // ),
                   ],
                 )),
           ),
@@ -111,7 +114,7 @@ Container headerWidget(BuildContext context) => Container(
                   context,
                   MaterialPageRoute(
                     builder: (context) =>
-                        Center(child: GroupScreen()), //화면이동 코드
+                        Center(child: ArticleScreen()), //화면이동 코드
                   ),
                 );
               },

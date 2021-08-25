@@ -11,11 +11,12 @@ final _firestore = FirebaseFirestore.instance;
 
 // int _current = 0;
 List imgList = [
+  'https://cdn.loveandlemons.com/wp-content/uploads/2019/07/salad.jpg',
   'https://images.unsplash.com/photo-1502117859338-fd9daa518a9a?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60',
   'https://images.unsplash.com/photo-1554321586-92083ba0a115?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60',
   'https://images.unsplash.com/photo-1536679545597-c2e5e1946495?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60',
   'https://images.unsplash.com/photo-1543922596-b3bbaba80649?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60',
-  'https://images.unsplash.com/photo-1543922596-b3bbaba80649?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60',
+  // 'https://images.unsplash.com/photo-1543922596-b3bbaba80649?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60',
 ];
 
 final PageController ctrl = PageController();
@@ -119,7 +120,7 @@ Container headerWidget(BuildContext context) => Container(
                   ),
                 );
               },
-              icon: Icon(Icons.settings),
+              icon: Icon(Icons.label),
             ),
           ],
           backgroundColor: Colors.black,
@@ -154,7 +155,7 @@ Container headerWidget(BuildContext context) => Container(
                 // aspectRatio: .0,
                 aspectRatio: 4 / 10,
                 viewportFraction: 1, //화면채우기
-                initialPage: 1,
+                initialPage: 0,
               ),
               items: imageSliders,
             ),
@@ -236,10 +237,10 @@ class MessageStream extends StatelessWidget {
               Padding(
                 padding: const EdgeInsets.all(5.0),
                 child: ClipRRect(
-                  borderRadius: BorderRadius.all(Radius.circular(20.0)),
+                  borderRadius: BorderRadius.all(Radius.circular(18.0)),
                   child: Image.asset(
                     'images/article1.png',
-                    height: MediaQuery.of(context).size.height * (0.2),
+                    height: MediaQuery.of(context).size.height * (0.19),
                     fit: BoxFit.cover,
                   ),
                 ),
@@ -247,10 +248,10 @@ class MessageStream extends StatelessWidget {
               Padding(
                 padding: const EdgeInsets.all(5.0),
                 child: ClipRRect(
-                  borderRadius: BorderRadius.all(Radius.circular(20.0)),
+                  borderRadius: BorderRadius.all(Radius.circular(18.0)),
                   child: Image.asset(
                     'images/article2.png',
-                    height: MediaQuery.of(context).size.height * (0.2),
+                    height: MediaQuery.of(context).size.height * (0.19),
                     fit: BoxFit.cover,
                   ),
                 ),
@@ -258,10 +259,10 @@ class MessageStream extends StatelessWidget {
               Padding(
                 padding: const EdgeInsets.all(5.0),
                 child: ClipRRect(
-                  borderRadius: BorderRadius.all(Radius.circular(20.0)),
+                  borderRadius: BorderRadius.all(Radius.circular(18.0)),
                   child: Image.asset(
                     'images/article3.png',
-                    height: MediaQuery.of(context).size.height * (0.2),
+                    height: MediaQuery.of(context).size.height * (0.19),
                     fit: BoxFit.cover,
                   ),
                 ),

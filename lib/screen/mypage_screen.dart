@@ -168,7 +168,7 @@ Container headerWidget(BuildContext context) => Container(
                         width: 50,
                       ),
                       Text(
-                        '콘텐츠 수:  9',
+                        '콘텐츠 수:  1',
                         style: TextStyle(fontSize: 15, color: Colors.white),
                       ),
                     ],

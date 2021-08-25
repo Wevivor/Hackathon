@@ -77,7 +77,7 @@ class _ArticleScreenState extends State<ArticleScreen> {
                 ]),
 
                 //항목2
-                SizedBox(height: 30),
+                SizedBox(height: 20),
                 Padding(
                   padding: EdgeInsets.only(left: 40),
                   child: Text(
@@ -112,7 +112,7 @@ class _ArticleScreenState extends State<ArticleScreen> {
                     )),
 
                 //항목3
-                SizedBox(height: 30),
+                SizedBox(height: 20),
                 Padding(
                   padding: EdgeInsets.only(left: 40),
                   child: Text(
@@ -126,17 +126,30 @@ class _ArticleScreenState extends State<ArticleScreen> {
                 Row(children: [
                   Padding(
                       padding: EdgeInsets.fromLTRB(30, 10, 20, 10),
-                      child: Image.asset('images/a1.png')),
-                  Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: <Widget>[
-                        Text(
-                          '1.사과',
-                          style: TextStyle(fontWeight: FontWeight.bold),
-                        ),
-                        Text(' -수분이 날라가지 않도록 밀봉 후 보관'),
-                        Text(' -계란'),
-                      ]),
+                      child: Image.asset('images/a3.png')),
+                  Padding(
+                    padding: EdgeInsets.only(right: 10),
+                    child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: <Widget>[
+                          Text(
+                            '1.사과',
+                            style: TextStyle(fontWeight: FontWeight.bold),
+                          ),
+                          SizedBox(
+                            height: 5,
+                          ),
+                          SizedBox(
+                            // height: 80,
+                            width: 155,
+                            child: Text(' -수분이 날라가지 않도록 밀봉 후 보관'),
+                          ),
+                          SizedBox(
+                            height: 5,
+                          ),
+                          Text(' -계란'),
+                        ]),
+                  ),
                 ]),
               ]),
         ));

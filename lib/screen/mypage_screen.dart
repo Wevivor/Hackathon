@@ -144,7 +144,7 @@ Container headerWidget(BuildContext context) => Container(
                     width: 150,
                     child: CircleAvatar(
                       radius: 100,
-                      backgroundImage: AssetImage('images/cha.png'),
+                      backgroundImage: AssetImage('images/pink.jpg'),
                     ),
                   ),
                   Text(

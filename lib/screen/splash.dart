@@ -38,6 +38,7 @@ class _SplashState extends State<Splash> {
                     height: screenHeight * 0.0859375,
                   ),
                 ),
+                Text('당신이 본 콘텐츠가 당신을 표현하는 세상!'),
                 Expanded(child: SizedBox()),
                 Align(
                   child: Text("© Copyright 2021, WEVIVOR",
@@ -60,7 +61,7 @@ class _SplashState extends State<Splash> {
   @override
   void initState() {
     super.initState();
-    Timer(Duration(milliseconds: 3000), () {
+    Timer(Duration(milliseconds: 2500), () {
       Navigator.push(context, MaterialPageRoute(builder: (context) => App()));
     });
   }

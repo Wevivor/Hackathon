@@ -40,6 +40,7 @@ class _MyContentsState extends State<MyContents> {
                   TabBar(
                     labelColor: Colors.black,
                     indicatorColor: Colors.yellow,
+                    isScrollable: true, //가로스크롤 허용
                     labelStyle:
                         TextStyle(fontSize: 15, fontWeight: FontWeight.bold),
                     tabs: [
@@ -57,9 +58,12 @@ class _MyContentsState extends State<MyContents> {
                       ),
                     ],
                   ),
+                  SizedBox(
+                    height: 20,
+                  ),
                   SingleChildScrollView(
                     child: SizedBox(
-                      height: 612,
+                      height: 550,
                       child: TabBarView(
                         children: <Widget>[
                           AllContents(),
@@ -81,8 +85,6 @@ class _MyContentsState extends State<MyContents> {
 
 //전체 콘텐츠 불러오기
 class AllContents extends StatefulWidget {
-  const AllContents({Key? key}) : super(key: key);
-
   @override
   _AllContentsState createState() => _AllContentsState();
 }
@@ -90,16 +92,34 @@ class AllContents extends StatefulWidget {
 class _AllContentsState extends State<AllContents> {
   @override
   Widget build(BuildContext context) {
-    return SafeArea(
-      child:
-          Column(mainAxisAlignment: MainAxisAlignment.start, children: <Widget>[
-        Text('data')
-        // Image.asset(
-        //   'images/pink.jpg',
-        //   width: 100,
-        //   height: 300,
-        // ),
-      ]),
+    return Container(
+      padding: EdgeInsets.only(left: 18, right: 18),
+      child: GridView.count(
+        mainAxisSpacing: 10,
+        crossAxisSpacing: 10,
+        crossAxisCount: 2,
+        childAspectRatio: (5 / 8),
+        children: <Widget>[
+          Container(
+            height: 20,
+            decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(20), //모서리를 둥글게
+                border: Border.all(color: Colors.black12, width: 3)), //테두리
+          ),
+          Container(
+            height: 20,
+            decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(20), //모서리를 둥글게
+                border: Border.all(color: Colors.black12, width: 3)), //테두리
+          ),
+          Container(
+            height: 20,
+            decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(20), //모서리를 둥글게
+                border: Border.all(color: Colors.black12, width: 3)), //테두리
+          ),
+        ],
+      ),
     );
   }
 }

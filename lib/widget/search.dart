@@ -94,16 +94,19 @@ class _SearchState extends State<Search> {
                           return Wrap(
                             children: [
                               ListTile(
-                                leading: Icon(Icons.share),
+                                leading: Icon(Icons.date_range),
                                 title: Text('날짜별'),
+                                onTap: () {},
                               ),
                               ListTile(
-                                leading: Icon(Icons.link),
+                                leading: Icon(Icons.category),
                                 title: Text('형식별'),
+                                onTap: () {},
                               ),
                               ListTile(
-                                leading: Icon(Icons.edit),
+                                leading: Icon(Icons.color_lens),
                                 title: Text('색깔별'),
+                                onTap: () {},
                               ),
                             ],
                           );

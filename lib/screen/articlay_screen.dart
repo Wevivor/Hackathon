@@ -25,7 +25,7 @@ final List<Widget> imageSliders = imgList
                 borderRadius: BorderRadius.all(Radius.circular(5.0)),
                 child: Stack(
                   children: <Widget>[
-                    // Image.network(item, height: 300, fit: BoxFit.cover),
+                    Image.network(item, height: 300, fit: BoxFit.cover),
 
 //코로셀 위 글씨부분
                     // Positioned(

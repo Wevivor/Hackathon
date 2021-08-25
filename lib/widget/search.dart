@@ -1,3 +1,4 @@
+import 'package:agile_hackathon/screen/arrange_screen.dart';
 import 'package:flutter/material.dart';
 
 class Search extends StatefulWidget {
@@ -101,7 +102,16 @@ class _SearchState extends State<Search> {
                               ListTile(
                                 leading: Icon(Icons.category),
                                 title: Text('형식별'),
-                                onTap: () {},
+                                onTap: () {
+                                  Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                      builder: (context) {
+                                        return ArrangeScreen();
+                                      },
+                                    ),
+                                  );
+                                },
                               ),
                               ListTile(
                                 leading: Icon(Icons.color_lens),

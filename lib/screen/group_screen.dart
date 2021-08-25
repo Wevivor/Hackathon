@@ -1,5 +1,3 @@
-import 'package:agile_hackathon/makeclay_data.dart';
-import 'package:agile_hackathon/widget/bottombar.dart';
 import 'package:flutter/cupertino.dart';
 
 import 'package:flutter/material.dart';
@@ -102,58 +100,38 @@ class FaceScreen extends StatelessWidget {
       mainAxisSpacing: 10,
       crossAxisCount: 1,
       children: <Widget>[
-        groupContainer(title: "포트폴리오 템플릿 같이 모아요", image: 'images/port.png'),
-        groupContainer(title: "여행 어디로_국내 라인업", image: 'images/trip.png'),
-        groupContainer(title: "강렬하게 고막을 때리는 노동요 모음", image: 'images/nct.png'),
+        groupContainer(image: 'images/group1.png'),
+        groupContainer(image: 'images/group2.png'),
+        groupContainer(image: 'images/group3.png'),
       ],
     );
   }
 }
 
 class groupContainer extends StatelessWidget {
-  const groupContainer({required this.title, required this.image});
+  const groupContainer({required this.image});
 
-  final String title;
   final String image;
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: EdgeInsets.only(bottom: 5),
-      padding:
-          EdgeInsets.only(bottom: MediaQuery.of(context).viewInsets.bottom),
+      margin: EdgeInsets.only(bottom: 0),
       child: Container(
-        // 배경이 흐린 회색으로 바뀜.
-        child: Container(
-          decoration: BoxDecoration(
-            color: Colors.black54,
-            borderRadius: BorderRadius.all(Radius.circular(20)),
-          ),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.stretch,
-            children: [
-              ClipRRect(
-                borderRadius: BorderRadius.only(
-                    topRight: Radius.circular(20.0),
-                    topLeft: Radius.circular(20.0)),
-                child: Image.asset(
-                  image,
-                  height: MediaQuery.of(context).size.height * (0.2),
-                  fit: BoxFit.cover,
-                ),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.stretch,
+          children: [
+            ClipRRect(
+              borderRadius: BorderRadius.only(
+                  topRight: Radius.circular(20.0),
+                  topLeft: Radius.circular(20.0)),
+              child: Image.asset(
+                image,
+                height: MediaQuery.of(context).size.height * (0.24),
+                fit: BoxFit.fitWidth,
               ),
-              Padding(
-                padding:
-                    EdgeInsets.only(top: 5.0, left: 10, right: 10, bottom: 5),
-                child: Text(
-                  title,
-                  textAlign: TextAlign.center,
-                  maxLines: 1,
-                  style: TextStyle(color: Colors.white),
-                ),
-              ),
-            ],
-          ),
+            ),
+          ],
         ),
       ),
     );

@@ -1,4 +1,4 @@
-import 'package:agile_hackathon/screen/share_screen.dart';
+import 'package:agile_hackathon/screen/arrange_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
@@ -174,7 +174,7 @@ Container headerWidget(BuildContext context) => Container(
                   context,
                   MaterialPageRoute(
                     builder: (context) =>
-                        Center(child: GroupScreen()), //화면이동 코드
+                        Center(child: ArrangeScreen()), //화면이동 코드
                   ),
                 );
               },

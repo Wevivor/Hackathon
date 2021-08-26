@@ -50,7 +50,7 @@ class _MyProfileState extends State<MyProfile> {
               ),
               CircleAvatar(
                 radius: 100,
-                backgroundImage: AssetImage('images/cha.png'),
+                backgroundImage: AssetImage('images/clay/moza4.png'),
               ),
               SizedBox(
                 height: 20,
@@ -67,7 +67,7 @@ class _MyProfileState extends State<MyProfile> {
                 children: [
                   Text('아티클 수:  0'),
                   SizedBox(width: 50),
-                  Text('콘텐츠 수:  9')
+                  Text('콘텐츠 수:  13')
                 ],
               ),
               // SizedBox(
@@ -144,7 +144,7 @@ Container headerWidget(BuildContext context) => Container(
                     width: 150,
                     child: CircleAvatar(
                       radius: 100,
-                      backgroundImage: AssetImage('images/pink.jpg'),
+                      backgroundImage: AssetImage('images/clay/moza4.png'),
                     ),
                   ),
                   Text(
@@ -168,7 +168,7 @@ Container headerWidget(BuildContext context) => Container(
                         width: 50,
                       ),
                       Text(
-                        '콘텐츠 수:  1',
+                        '콘텐츠 수:  13',
                         style: TextStyle(fontSize: 15, color: Colors.white),
                       ),
                     ],
@@ -377,28 +377,16 @@ class MyClayScreen extends StatelessWidget {
         crossAxisCount: 3,
         children: <Widget>[
           Image.asset(
-            'images/pink.jpg',
+            'images/clay/moza4.png',
           ),
           Image.asset(
             'images/pink.jpg',
           ),
           Image.asset(
-            'images/pink.jpg',
+            'images/blue.JPG',
           ),
           Image.asset(
             'images/puple.JPG',
-          ),
-          Image.asset(
-            'images/blue.JPG',
-          ),
-          Image.asset(
-            'images/blue.JPG',
-          ),
-          Image.asset(
-            'images/blue.JPG',
-          ),
-          Image.asset(
-            'images/blue.JPG',
           ),
         ],
       ),
